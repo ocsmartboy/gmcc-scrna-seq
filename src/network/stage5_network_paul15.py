@@ -13,8 +13,7 @@ print("=" * 60)
 
 # ── 1. LOAD DATA ──────────────────────────────────────────────
 print("\n[1/4] Memuat data...")
-save_dir = ("d:/S3/Eksperimen/Bioinformatika/"
-            "gmcc_biomedical/data/processed")
+save_dir = ("data/processed")
 
 X           = np.load(f"{save_dir}/X_paul15.npy")
 global_mean = np.load(f"{save_dir}/global_mean_paul15.npy")[0]
