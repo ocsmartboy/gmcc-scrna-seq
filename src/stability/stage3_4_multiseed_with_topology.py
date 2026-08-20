@@ -11,8 +11,7 @@ print("MULTIPLE-SEED STABILITY: KENDALL TAU + NETWORK TOPOLOGY")
 print("(20 seed per dropout level, Wilcoxon Signed-Rank)")
 print("=" * 65)
 
-save_dir = ("d:/S3/Eksperimen/Bioinformatika/"
-            "gmcc_biomedical/data/processed")
+save_dir = ("data/processed")
 N_SEEDS = 20
 DROPOUT_LEVELS = [0.1, 0.3, 0.5, 0.7]
 PERCENTILE = 95  # konsisten dengan Stage 5
