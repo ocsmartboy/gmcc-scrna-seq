@@ -9,8 +9,7 @@ print("=" * 60)
 print("PIPELINE PAUL ET AL. 2015 (MOUSE BONE MARROW)")
 print("=" * 60)
 
-save_dir = ("d:/S3/Eksperimen/Bioinformatika/"
-            "gmcc_biomedical/data/processed")
+save_dir = ("data/processed")
 
 # ── STAGE 1: PREPROCESSING ────────────────────────────────────
 print("\n[STAGE 1] Preprocessing...")
