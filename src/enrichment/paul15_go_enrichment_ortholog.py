@@ -10,8 +10,7 @@ print("=" * 65)
 print("PAUL ET AL. 2015: GO ENRICHMENT VIA ORTHOLOG CONVERSION")
 print("=" * 65)
 
-save_dir = ("d:/S3/Eksperimen/Bioinformatika/"
-            "gmcc_biomedical/data/processed")
+save_dir = ("data/processed")
 
 # ── 1. LOAD DATA ──────────────────────────────────────────────
 print("\n[1/5] Memuat data...")
