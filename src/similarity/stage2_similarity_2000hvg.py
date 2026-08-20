@@ -175,7 +175,7 @@ for name, sim in sim_matrices.items():
 
 # Simpan untuk digunakan di stage berikutnya
 import os
-save_dir = "d:/S3/Eksperimen/Bioinformatika/gmcc_biomedical/data/processed"
+save_dir = "data/processed"
 os.makedirs(save_dir, exist_ok=True)
 np.save(f"{save_dir}/X_2000hvg.npy", X)
 np.save(f"{save_dir}/global_mean_2000hvg.npy", np.array([global_mean]))
