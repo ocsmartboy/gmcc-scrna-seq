@@ -277,8 +277,8 @@ sc.pl.umap(
 )
 
 plt.tight_layout()
-out = ("d:/S3/Eksperimen/Bioinformatika/gmcc_biomedical"
-       "/figures/stage7_clustering_comparison.png")
+os.makedirs("figures", exist_ok=True)
+out = "figures/stage7_clustering_comparison.png"
 plt.savefig(out, dpi=150, bbox_inches="tight")
 print(f"\n  Visualisasi disimpan: {out}")
 print("\n✓ Stage 7 selesai.")
