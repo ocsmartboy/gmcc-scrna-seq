@@ -102,7 +102,7 @@ MIT License — see [LICENSE](LICENSE).
 
 ## Contact
 
-Slamet Wiyono — Department of Electrical and Information Engineering, Universitas Gadjah Mada, Yogyakarta, Indonesia
-Corresponding author (Paper 1 & 2): Teguh Bharata Adji — adji@ugm.ac.id
+Slamet Wiyono — Department of Electrical and Information Engineering, Universitas Gadjah Mada, Yogyakarta, Indonesia.
+Corresponding author: Teguh Bharata Adji — adji@ugm.ac.id
 
 Repository: `https://github.com/ocsmartboy/gmcc-scrna-seq`
