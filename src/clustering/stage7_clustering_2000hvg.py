@@ -98,7 +98,7 @@ for c, cnt in dist_std.items():
     print(f"        Cluster {c}: {cnt:4d} sel  {bar}")
 
 # ── 4. PIPELINE 2: GMCC TANPA PCA ─────────────────────────────
-print("\n[4/5] Pipeline 2: GMCC tanpa PCA...")
+print("\n[4/5] Pipeline 2: GMCC no PCA...")
 
 adata_gmcc = adata.copy()
 print("      Menghitung GMCC similarity antar sel...",
@@ -279,6 +279,6 @@ sc.pl.umap(
 plt.tight_layout()
 os.makedirs("figures", exist_ok=True)
 out = "figures/stage7_clustering_comparison.png"
-plt.savefig(out, dpi=150, bbox_inches="tight")
+plt.savefig(out, dpi=600, bbox_inches="tight")
 print(f"\n  Visualisasi disimpan: {out}")
 print("\n✓ Stage 7 selesai.")
