@@ -5,6 +5,7 @@ import gseapy as gp
 from scipy.stats import rankdata
 from scipy.sparse import issparse
 import time
+import os
 import warnings
 warnings.filterwarnings("ignore")
 
@@ -14,7 +15,9 @@ print("=" * 60)
 
 # ── 1. LOAD DATA ──────────────────────────────────────────────
 print("\n[1/4] Mempersiapkan data...")
-save_dir = "data/processed"
+HERE = os.path.dirname(os.path.abspath(__file__))
+REPO = os.path.dirname(os.path.dirname(HERE))
+save_dir = os.path.join(REPO, "data", "processed")
 X           = np.load(f"{save_dir}/X_2000hvg.npy")
 global_mean = np.load(f"{save_dir}/global_mean_2000hvg.npy")[0]
 
@@ -96,38 +99,45 @@ def extract_modules(G, min_size=10, max_modules=5):
             key=len, reverse=True
         )
         modules = [
-            list(c) for c in components
+            sorted(c) for c in components
             if len(c) >= min_size
         ]
     else:
         # Gunakan community detection
         communities = nx.community.greedy_modularity_communities(G)
         modules     = sorted(
-            [list(c) for c in communities
+            [sorted(c) for c in communities
              if len(c) >= min_size],
             key=len, reverse=True
         )
 
     return modules[:max_modules]
 
-def run_go_enrichment(gene_list):
-    """Jalankan GO enrichment, return jumlah GO terms signifikan."""
-    try:
-        result = gp.enrichr(
-            gene_list  = gene_list,
-            gene_sets  = "GO_Biological_Process_2023",
-            outdir     = None,
-            verbose    = False,
-        )
-        df = result.results
-        if df is not None and len(df) > 0:
-            df_sig = df[df["Adjusted P-value"] < 0.05]
-            return len(df_sig), df_sig
-    except Exception as e:
-        print(f" [error: {e}]", end="")
+def run_go_enrichment(gene_list, max_retries=4):
+    """Jalankan GO enrichment dengan retry; return jumlah GO terms signifikan."""
+    for attempt in range(max_retries):
+        try:
+            result = gp.enrichr(
+                gene_list  = gene_list,
+                gene_sets  = "GO_Biological_Process_2023",
+                outdir     = None,
+                verbose    = False,
+            )
+            df = result.results
+            if df is not None and len(df) > 0:
+                df_sig = df[df["Adjusted P-value"] < 0.05]
+                df_sig = df_sig.sort_values("Adjusted P-value")
+                return len(df_sig), df_sig
+            return 0, None
+        except Exception as e:
+            wait = 5 * (attempt + 1)          # 5s, 10s, 15s, 20s
+            if attempt < max_retries - 1:
+                print(f" [retry {attempt+1}/{max_retries-1} "
+                      f"in {wait}s]", end="", flush=True)
+                time.sleep(wait)
+            else:
+                print(f" [failed: {type(e).__name__}]", end="")
     return 0, None
-
-print("      ✓ Semua fungsi siap")
 
 # ── 3. BANGUN JARINGAN & EKSTRAK MODUL ────────────────────────
 print("\n[3/4] Membangun jaringan dan mengekstrak modul...")
@@ -138,7 +148,7 @@ methods = {
     "Pearson" : pearson_vectorized,
     "Cosine"  : cosine_vectorized,
     "Spearman": spearman_vectorized,
-    "Bicor"   : bicor_vectorized,
+    "Bicor-SD"   : bicor_vectorized,
 }
 
 all_modules = {}
@@ -184,19 +194,21 @@ for name, modules in all_modules.items():
         enrichment_summary[name]["total_sig"] += n_sig
 
         print(f" {n_sig} GO terms signifikan")
+        time.sleep(3)
 
         if df_sig is not None and len(df_sig) > 0:
-            top3 = df_sig.head(3)
-            for _, row in top3.iterrows():
-                term = row["Term"][:45]
-                pval = row["Adjusted P-value"]
-                print(f"      • {term}")
-                print(f"        p-adj={pval:.2e}")
-            # Simpan top term untuk ringkasan
+            out_dir = os.path.join(REPO, "results", "go_enrichment")
+            os.makedirs(out_dir, exist_ok=True)
+            df_sig.to_csv(
+                os.path.join(out_dir,
+                             f"{name}_module{i+1}_{len(module)}genes.csv"),
+                index=False)
+
+            for _, row in df_sig.head(3).iterrows():
+                print(f"      • {row['Term'][:45]}")
+                print(f"        p-adj={row['Adjusted P-value']:.2e}")
             enrichment_summary[name]["top_terms"].append(
-                df_sig.iloc[0]["Term"][:40]
-                if len(df_sig) > 0 else "-"
-            )
+                df_sig.iloc[0]["Term"][:40])
 
 # ── RINGKASAN ─────────────────────────────────────────────────
 print("\n" + "=" * 60)
