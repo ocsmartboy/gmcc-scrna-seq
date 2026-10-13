@@ -16,7 +16,7 @@ print("=" * 60)
 
 # ── 1. PERSIAPAN DATA ─────────────────────────────────────────
 print("\n[1/5] Mempersiapkan data...")
-save_dir = "data/processed"
+save_dir = "d:/S3/Eksperimen/Bioinformatika/gmcc_biomedical/data/processed"
 X           = np.load(f"{save_dir}/X_2000hvg.npy")
 global_mean = np.load(f"{save_dir}/global_mean_2000hvg.npy")[0]
 
@@ -98,7 +98,7 @@ for c, cnt in dist_std.items():
     print(f"        Cluster {c}: {cnt:4d} sel  {bar}")
 
 # ── 4. PIPELINE 2: GMCC TANPA PCA ─────────────────────────────
-print("\n[4/5] Pipeline 2: GMCC no PCA...")
+print("\n[4/5] Pipeline 2: GMCC tanpa PCA...")
 
 adata_gmcc = adata.copy()
 print("      Menghitung GMCC similarity antar sel...",
@@ -277,8 +277,8 @@ sc.pl.umap(
 )
 
 plt.tight_layout()
-os.makedirs("figures", exist_ok=True)
-out = "figures/stage7_clustering_comparison.png"
-plt.savefig(out, dpi=600, bbox_inches="tight")
+out = ("d:/S3/Eksperimen/Bioinformatika/gmcc_biomedical"
+       "/figures/stage7_clustering_comparison.png")
+plt.savefig(out, dpi=150, bbox_inches="tight")
 print(f"\n  Visualisasi disimpan: {out}")
 print("\n✓ Stage 7 selesai.")
