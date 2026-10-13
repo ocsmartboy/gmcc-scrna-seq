@@ -1,5 +1,6 @@
 import scanpy as sc
 import numpy as np
+import os
 from scipy.stats import rankdata
 from scipy.sparse import issparse
 import time
@@ -174,8 +175,10 @@ for name, sim in sim_matrices.items():
           f"{upper.max():>8.4f}")
 
 # Simpan untuk digunakan di stage berikutnya
-import os
-save_dir = "d:/S3/Eksperimen/Bioinformatika/gmcc_biomedical/data/processed"
+
+HERE = os.path.dirname(os.path.abspath(__file__))
+REPO = os.path.dirname(os.path.dirname(HERE))
+save_dir = os.path.join(REPO, "data", "processed")
 os.makedirs(save_dir, exist_ok=True)
 np.save(f"{save_dir}/X_2000hvg.npy", X)
 np.save(f"{save_dir}/global_mean_2000hvg.npy", np.array([global_mean]))
