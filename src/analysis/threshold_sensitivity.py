@@ -2,12 +2,16 @@ import numpy as np
 import networkx as nx
 from scipy.stats import rankdata
 import time
+import os
 
 print("=" * 60)
 print("THRESHOLD SENSITIVITY ANALYSIS")
 print("=" * 60)
 
-save_dir = "d:/S3/Eksperimen/Bioinformatika/gmcc_biomedical/data/processed"
+
+HERE = os.path.dirname(os.path.abspath(__file__))
+REPO = os.path.dirname(os.path.dirname(HERE))
+save_dir = os.path.join(REPO, "data", "processed")
 
 # ── Fungsi similarity (disalin persis dari kode existing) ────
 def gmcc_vectorized(X, mu):
