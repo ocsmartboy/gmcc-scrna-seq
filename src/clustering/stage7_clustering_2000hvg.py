@@ -1,5 +1,6 @@
 import scanpy as sc
 import numpy as np
+import os
 from scipy.sparse import csr_matrix
 from scipy.stats import rankdata
 from sklearn.metrics import (
@@ -16,7 +17,9 @@ print("=" * 60)
 
 # ── 1. PERSIAPAN DATA ─────────────────────────────────────────
 print("\n[1/5] Mempersiapkan data...")
-save_dir = "d:/S3/Eksperimen/Bioinformatika/gmcc_biomedical/data/processed"
+HERE = os.path.dirname(os.path.abspath(__file__))
+REPO = os.path.dirname(os.path.dirname(HERE))
+save_dir = os.path.join(REPO, "data", "processed")"
 X           = np.load(f"{save_dir}/X_2000hvg.npy")
 global_mean = np.load(f"{save_dir}/global_mean_2000hvg.npy")[0]
 
@@ -277,8 +280,7 @@ sc.pl.umap(
 )
 
 plt.tight_layout()
-out = ("d:/S3/Eksperimen/Bioinformatika/gmcc_biomedical"
-       "/figures/stage7_clustering_comparison.png")
+out = os.path.join(REPO, "figures", "Figure_S1.png")
 plt.savefig(out, dpi=150, bbox_inches="tight")
 print(f"\n  Visualisasi disimpan: {out}")
 print("\n✓ Stage 7 selesai.")
