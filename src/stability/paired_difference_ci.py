@@ -190,7 +190,7 @@ def main():
                 stat, p = wilcoxon(d)
                 raw_p.append(p)
                 rows.append((comp, hl, lo, hi, stat))
-            adj_p = holm(raw_p)
+            adj_p = list(holm(raw_p[:3])) + [raw_p[3]]
 
             print(f"\n  Masking {rate * 100:.0f}%:")
             print(f"    {'Comparison':<16}{'HL':>10}{'95% CI':>24}"
