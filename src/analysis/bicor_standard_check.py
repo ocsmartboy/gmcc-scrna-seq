@@ -1,10 +1,14 @@
 import numpy as np
+import os
 
 print("=" * 60)
 print("STANDARD BICOR (NO FALLBACK) — DEGENERACY CHECK")
 print("=" * 60)
 
-save_dir = "d:/S3/Eksperimen/Bioinformatika/gmcc_biomedical/data/processed"
+
+HERE = os.path.dirname(os.path.abspath(__file__))
+REPO = os.path.dirname(os.path.dirname(HERE))
+save_dir = os.path.join(REPO, "data", "processed")
 
 def bicor_standard_vectorized(X):
     """Bicor MURNI — tanpa fallback ke std saat MAD=0."""
