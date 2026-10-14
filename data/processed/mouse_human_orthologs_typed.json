@@ -1,0 +1,15 @@
+{
+  "retrieved": "2026-10-14",
+  "host": "www.ensembl.org",
+  "dataset": "mmusculus_gene_ensembl",
+  "attributes": [
+    "ensembl_gene_id",
+    "external_gene_name",
+    "hsapiens_homolog_ensembl_gene",
+    "hsapiens_homolog_associated_gene_name",
+    "hsapiens_homolog_orthology_type",
+    "hsapiens_homolog_orthology_confidence"
+  ],
+  "rows": 25001,
+  "note": "Record the Ensembl release shown on the host on the retrieval date."
+}
