@@ -1,0 +1,18 @@
+# Large intermediate matrices (regenerate with src/similarity/stage2_*.py)
+data/processed/*.npy
+
+# Python
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+
+# Scanpy dataset cache (created in data/ of the working directory)
+*.h5ad
+**/data/paul15/
+src/data/
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
