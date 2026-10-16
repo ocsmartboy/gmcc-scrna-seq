@@ -1,57 +1,21 @@
-# Global Mean-Centered Correlation for Gene Co-Expression Network Estimation in Sparse Single-Cell Transcriptomics
+# Robustness of Global Mean-Centered Correlation under Controlled Observed-Zero Sparsity in Single-Cell Transcriptomics
 
-Code repository accompanying the manuscript:
+Code, intermediate mappings and results accompanying the manuscript
 
-> Wiyono, S., Adji, T. B., Nugroho, H. A., & Wibirama, S. "Global Mean-Centered Correlation for Gene Co-Expression Network Estimation in Sparse Single-Cell Transcriptomics." *Computer Methods and Programs in Biomedicine* (Elsevier), under review.
+> Wiyono, S., Adji, T. B., Nugroho, H. A., & Wibirama, S. *Robustness of Global Mean-Centered Correlation under Controlled Observed-Zero Sparsity in Single-Cell Transcriptomics.* Submitted to *Computational Biology and Chemistry* (Elsevier).
 
-This work extends **Global Mean-Centered Correlation (GMCC)** — introduced in Wiyono et al. (2026), *Information Sciences* — to single-cell RNA sequencing (scRNA-seq) data, evaluating similarity/correlation estimator stability under sparsity (dropout) on two independent datasets.
+The study evaluates whether **Global Mean-Centered Correlation (GMCC)** — introduced by Wiyono et al. (2026, *Information Sciences*) for collaborative filtering with missing entries — preserves gene–gene similarity rankings and magnitudes when detected expression entries in scRNA-seq data are masked to zero. GMCC is compared with Pearson correlation, Cosine similarity and Spearman rank correlation; a biweight midcorrelation variant with a standard-deviation fallback (Bicor-SD) is reported in the Supplementary Material only.
 
-## Overview
+## Datasets
 
-The pipeline evaluates five similarity/correlation measures across two scRNA-seq datasets:
+Both datasets are downloaded automatically by Scanpy on first use.
 
-| Measure | Centering reference |
-|---|---|
-| GMCC | Single dataset-level global mean |
-| Pearson (PCC) | Local arithmetic mean (per gene pair) |
-| Cosine | None |
-| Spearman | Local mean of ranks |
-| **Bicor-SD** | Local median + MAD, **with standard-deviation fallback** |
+| Dataset | Loader | Organism / tissue | Cells | Sparsity after preprocessing | Global mean μ |
+|---|---|---|---|---|---|
+| PBMC 3K | `scanpy.datasets.pbmc3k()` (10x Genomics) | human, peripheral blood | 2,700 | 91.4% | 0.1776 |
+| Paul15 | `scanpy.datasets.paul15()` (Paul et al., 2015; GEO GSE72857) | mouse, bone marrow | 2,730 | 77.2% | 0.4980 |
 
-**Note on Bicor-SD.** Under the sparsity levels evaluated here, the median absolute deviation (MAD) equals zero for 97.4% of gene profiles in PBMC 3K and 86.9% in Paul15, leaving standard biweight midcorrelation undefined for 99.93% and 98.28% of gene pairs respectively. All results reported as "Bicor-SD" therefore use a fallback variant in which the local standard deviation replaces MAD when MAD equals zero. **Bicor-SD is a distinct estimator from standard Bicor** and should not be interpreted as the WGCNA-standard implementation. See `src/analysis/bicor_standard_check.py` and `src/analysis/module_check_bicor.py` for the scripts that quantify this.
-
-Datasets:
-
-- **PBMC 3K** (10x Genomics; human, peripheral blood; sparsity ≈ 91.4%, global mean μ = 0.1776)
-- **Paul et al. 2015** (mouse bone marrow; sparsity ≈ 77.2%, global mean μ = 0.4980)
-
-Evaluation dimensions:
-
-1. Rank stability under simulated dropout (Kendall's τ; 20 seeds per dropout level, Hodges–Lehmann estimators with distribution-free 95% CIs, exact Wilcoxon signed-rank tests with Holm correction)
-2. Gene co-expression network topology (clustering coefficient, connected components) across datasets, dropout realizations, and percentile thresholds
-3. Biological validation (GO Biological Process enrichment via Enrichr, including mouse–human ortholog conversion for Paul15)
-4. Cell clustering quality (Leiden clustering; Silhouette, ARI, NMI)
-5. PCA-ablation study (GMCC with vs. without PCA preprocessing)
-
-## Repository Structure
-
-```
-src/
-├── preprocessing/   Data loading and standard scRNA-seq preprocessing (Scanpy)
-├── similarity/      Vectorized implementations of all five similarity measures
-├── stability/       Multi-seed dropout simulation and statistical testing
-├── network/         Gene co-expression network construction and topology analysis
-├── enrichment/      GO Biological Process enrichment (incl. ortholog conversion)
-├── clustering/      Cell clustering and PCA-ablation study
-├── analysis/        Supplementary analyses (threshold sensitivity, module sizes,
-│                    Bicor degeneracy checks)
-├── figures/         Figure generation for the manuscript
-└── paul15_pipeline.py   Consolidated pipeline for the Paul et al. 2015 dataset
-
-figures/             Generated figures (manuscript and exploratory)
-data/processed/      Intermediate arrays (not version-controlled; regenerate by
-                     re-running the scripts)
-```
+Preprocessing (identical for both): genes detected in ≥ 3 cells; total-count normalisation to 10⁴; `log1p`; 2,000 highly variable genes (Scanpy `seurat` flavour). The resulting gene-by-cell matrices are the common input to all estimators.
 
 ## Installation
 
@@ -59,105 +23,87 @@ data/processed/      Intermediate arrays (not version-controlled; regenerate by
 pip install -r requirements.txt
 ```
 
-Tested with Python 3.12. No GPU required — all similarity computations are vectorized with NumPy.
+Exact package versions used for the manuscript are listed in `requirements-lock.txt`. No GPU is required; all similarity matrices are computed with vectorised NumPy.
 
-## Usage
+## Reproducing the results
 
-Datasets are downloaded automatically via `scanpy.datasets` on first run (no manual download needed). Run scripts from the repository root.
-
-**Main pipeline:**
+Run everything in manuscript order (console output of every step is archived in `results/logs/`):
 
 ```
-python src/preprocessing/stage1_preprocessing.py
-python src/similarity/stage2_similarity_2000hvg.py
-python src/stability/stage3_4_multiseed_with_topology.py
-python src/network/stage5_network_2000hvg.py
-python src/enrichment/stage6_go_enrichment_2000hvg.py
-python src/clustering/stage7_clustering_2000hvg.py
-python src/paul15_pipeline.py
-python src/network/stage5_network_paul15.py
-python src/enrichment/paul15_go_enrichment_ortholog.py
+python run_all.py            # all steps
+python run_all.py --list     # list steps and the manuscript items they produce
+python run_all.py rank       # a single step
 ```
 
-**Statistical analysis and supplementary checks** (required to reproduce several
-values reported in the manuscript):
+The full run can take several hours on a laptop, dominated by the 2,000 × 2,000 similarity matrices recomputed for 20 realisations at four masking levels. The exploratory PCA ablation (Supplementary Section S4) uses Scanpy's standard PCA–neighbour–Leiden pipeline, whose number of clusters can differ across Scanpy/igraph versions; the reported values were obtained with the versions in `requirements-lock.txt`. The matrix-building steps never overwrite existing matrices in `data/processed/`; they report whether a rebuilt matrix matches the stored one (use `--overwrite` to replace).
 
-```
-python src/stability/paired_difference_ci.py      # Hodges-Lehmann estimates + 95% CIs
-python src/analysis/threshold_sensitivity.py      # P90 / P95 / P97.5 comparison
-python src/analysis/module_sizes.py               # module sizes per method
-python src/analysis/module_check_bicor.py         # MAD = 0 rate per gene profile
-python src/analysis/bicor_standard_check.py       # undefined rate per gene pair
-```
+## Mapping to the manuscript
 
-**Figure generation:**
+| Manuscript item | Script | Output |
+|---|---|---|
+| Datasets, μ, sparsity (Methods 2.1) | `src/similarity/stage2_similarity_2000hvg.py`, `src/similarity/stage2_similarity_paul15.py` | `data/processed/X_*.npy`, `global_mean_*.npy`; `results/logs/matrix_*.log` |
+| Methods checks: nested masking, realised masking levels, no constant profiles in unperturbed matrices, 99,950 edges, positive MAD | `src/analysis/verify_methods_assumptions.py` | `results/logs/assumptions.log` |
+| Table 1; Fig. 1 data; Suppl. Tables S1, S8 | `src/stability/paired_difference_ci.py` | `results/rank_robustness.csv`, `results/paired_tests.csv`, `data/processed/raw_kendall_tau_per_seed.npz` |
+| Table 2 (retained vs recomputed global mean) | `src/analysis/mu_fixed_vs_recomputed.py` | `results/logs/centring.log` |
+| Figs. 1–2; Suppl. Table S2 (NMAC) | `src/figures/make_figures.py` | `figures/Figure_1.*`, `figures/Figure_2.*`, `results/nmac.csv` |
+| Table 3 (unperturbed networks) | `src/network/stage5_network_2000hvg.py`, `src/network/stage5_network_paul15.py` | `results/logs/network_*.log` |
+| Suppl. Table S3 (clustering coefficient under masking) | `src/stability/network_topology_masking.py` | `data/processed/clustering_coefficient_masking.npz`, `results/logs/network_masking.log` |
+| Suppl. Table S4 (90th / 95th / 97.5th percentile) | `src/analysis/threshold_sensitivity.py` | `results/logs/threshold.log` |
+| Table 4 (degree vs detection rate) | `src/analysis/abundance_confounding.py` | `results/logs/degree.log` |
+| Table 5, PBMC 3K enrichment | `src/enrichment/stage6_go_enrichment_2000hvg.py` | `results/go_enrichment/*_hvgbg.csv` |
+| Table 5, Paul15 enrichment; Suppl. Tables S5, S10 | `src/enrichment/paul15_go_enrichment_one2one.py` | `results/go_enrichment_orthologue_sensitivity/` |
+| Suppl. Table S6 (all significant GO terms) | `src/enrichment/make_go_supplement_table.py` | `results/go_enrichment/supplementary_go_terms.tex` |
+| Suppl. Section S4, Fig. S1 (PCA ablation) | `src/clustering/stage7_clustering_2000hvg.py` | `figures/Figure_S1.png`, `results/logs/clustering.log` |
+| Suppl. Section S6, Tables S7–S8 (Bicor-SD) | `paired_difference_ci.py`, `stage5_network_*.py`, `network_topology_masking.py`, `threshold_sensitivity.py`, `abundance_confounding.py`, `src/analysis/module_check_bicor.py`, `src/analysis/bicor_standard_check.py` | corresponding logs and CSVs |
+| Suppl. Section S7, Table S9 (entirely zero profiles) | `src/stability/sensitivity_defined_pairs.py` | `results/sensitivity_coverage.csv`, `results/sensitivity_mean_tau.csv`, `results/sensitivity_paired_tests.csv` |
 
-```
-python src/figures/make_figures.py                # Figures 1 and 2
-```
+`src/analysis/module_abundance_check.py` is a module-level diagnostic that is not tabulated in the manuscript. `src/figures/make_graphical_abstract.py` draws an optional graphical abstract.
 
-`make_figures.py` reads the per-seed Kendall's τ values written by
-`paired_difference_ci.py` and derives every plotted quantity from them; no values
-are hardcoded. Run `paired_difference_ci.py` first.
+## Key implementation details
 
-Each script prints intermediate results to stdout and saves processed arrays to
-`data/processed/` (created automatically; not version-controlled).
+**Masking.** For each dataset and realisation, a uniform random value is drawn for every entry (`numpy.random.seed(seed)` followed by `numpy.random.rand`, seeds 1–20). Detected entries with values below m ∈ {0.1, 0.3, 0.5, 0.7} are set to zero. The same draws are used at every level, so masking is nested within a realisation; each masked matrix is generated directly from the unperturbed matrix.
 
-## Mapping to the Manuscript
+**Global mean.** In the primary analysis, μ is recomputed from every analysed (masked) matrix. `src/analysis/mu_fixed_vs_recomputed.py` compares this with retaining μ from the unperturbed matrix.
 
-| Manuscript item | Script |
+**Undefined similarities.** When masking produces an entirely zero profile, Pearson, Spearman, Cosine and Bicor-SD are undefined for pairs involving it; these values are set to zero. GMCC remains defined. `sensitivity_defined_pairs.py` repeats the rank analysis on pairs defined for all estimators.
+
+**Statistics.** Masking realisations are the units of inference. Paired differences in Kendall's τ_b (GMCC − comparator) are summarised by Hodges–Lehmann estimates with exact distribution-free 95% confidence intervals from the ordered Walsh averages, and tested with exact two-sided Wilcoxon signed-rank tests; Holm correction is applied across Pearson, Cosine and Spearman within each dataset and masking level (Bicor-SD p-values are unadjusted).
+
+**Networks.** An edge is retained when the signed similarity strictly exceeds the 95th percentile of the estimator's upper-triangular similarity distribution (99,950 of 1,999,000 gene pairs in every unperturbed network). Modules are connected components with ≥ 10 genes; when a network forms a single component (Pearson and Spearman in PBMC 3K), it is partitioned by greedy modularity.
+
+**Functional enrichment.** GO Biological Process (`GO_Biological_Process_2023`, Enrichr library) over-representation is tested with the local hypergeometric test in GSEApy against an explicit background: the 2,000 HVGs for PBMC 3K, and their human one-to-one orthologues (1,610 genes) for Paul15. Benjamini–Hochberg correction is applied within each module (adjusted p < 0.05). Cell clustering uses Leiden with `random_state=42`.
+
+**Orthologue mapping (Paul15).** Mouse-to-human orthologues were retrieved from Ensembl BioMart (`mmusculus_gene_ensembl`, Ensembl release 116, accessed 14 October 2026) and only `ortholog_one2one` pairs are used. Archived tables in `data/processed/`:
+
+| File | Content |
 |---|---|
-| Table 1 (average Kendall's τ, degradation) | `src/stability/stage3_4_multiseed_with_topology.py` |
-| Table 2 (Hodges–Lehmann paired differences) | `src/stability/paired_difference_ci.py` |
-| Table 3 (network topology, 95th percentile) | `src/network/stage5_network_2000hvg.py`, `src/network/stage5_network_paul15.py` |
-| Table 4 (cross-dataset gap under dropout) | `src/stability/stage3_4_multiseed_with_topology.py` |
-| Table 5 (threshold sensitivity) | `src/analysis/threshold_sensitivity.py` |
-| Table 6 (GO enrichment, PBMC 3K) | `src/enrichment/stage6_go_enrichment_2000hvg.py`, `src/analysis/module_sizes.py` |
-| Table 7 (GO enrichment, Paul15) | `src/enrichment/paul15_go_enrichment_ortholog.py` |
-| Figure 1 (stability trajectories) | `src/figures/make_figures.py` |
-| Figure 2 (GMCC vs. Cosine difference) | `src/figures/make_figures.py` |
-| Figure 3 (PCA ablation, UMAP) | `src/clustering/stage7_clustering_2000hvg.py` |
-| MAD = 0 rates (Section 2.3) | `src/analysis/module_check_bicor.py` |
-| Undefined gene-pair rates (Section 2.3) | `src/analysis/bicor_standard_check.py` |
+| `mouse_human_orthologs_typed.csv` | all mouse→human homologues with orthology type and confidence (primary analysis) |
+| `mouse_human_orthologs_typed.json` | retrieval date, host and attributes |
+| `mouse_human_orthologs.csv` | earlier two-column table used by the alternative "final entry" rule (Supplementary Table S10) |
 
-The `figures/` directory also contains exploratory plots that are not included in
-the manuscript.
+`src/enrichment/paul15_go_enrichment_ortholog.py` implements that earlier rule and is retained for comparison only.
 
-## Reproducibility Chain for Figures 1–2
+## Repository structure
 
 ```
-scanpy.datasets.pbmc3k() / paul15()
-  -> src/preprocessing, src/similarity        (preprocessed matrices)
-  -> src/stability/paired_difference_ci.py    (per-seed Kendall's tau)
-  -> data/processed/raw_kendall_tau_per_seed.npz
-  -> src/figures/make_figures.py
-  -> figures/Figure_1.{pdf,png}, figures/Figure_2.{pdf,png}
+run_all.py            pipeline runner (writes results/logs/)
+src/
+  similarity/         preprocessing and matrix construction (both datasets)
+  stability/          masking, rank robustness, paired statistics, sensitivity analyses
+  analysis/           centring reference, thresholds, degree-detection, Bicor diagnostics
+  network/            unperturbed co-expression networks
+  enrichment/         GO enrichment and the supplementary GO-term table
+  clustering/         exploratory PCA ablation (Supplementary Section S4)
+  figures/            manuscript figures
+data/processed/       orthologue tables (tracked); matrices *.npy (regenerated, not tracked)
+results/              tables underlying the manuscript and step logs
+figures/              manuscript figures
+archive/              superseded scripts (not used for the manuscript; see archive/README.md)
 ```
-
-## Datasets
-
-Both datasets are public benchmarks accessed via Scanpy's built-in loaders:
-
-- `scanpy.datasets.pbmc3k()` — 10x Genomics PBMC 3K
-- `scanpy.datasets.paul15()` — Paul et al. (2015), *Cell*, mouse bone marrow (GEO: GSE72857)
 
 ## Citation
 
-If you use this code, please cite both entries below.
-
-**1. This work** (manuscript currently under review — DOI, volume, and page numbers will be added upon acceptance):
-
-```bibtex
-@article{wiyono2026gmccscrna,
-  author  = {Wiyono, Slamet and Adji, Teguh Bharata and Nugroho, Hanung Adi and Wibirama, Sunu},
-  title   = {Global Mean-Centered Correlation for Gene Co-Expression Network Estimation in Sparse Single-Cell Transcriptomics},
-  journal = {Computer Methods and Programs in Biomedicine},
-  year    = {2026},
-  note    = {Manuscript under review; full citation to be updated upon acceptance}
-}
-```
-
-**2. The foundational GMCC method** (already published; introduces and theoretically establishes GMCC on recommender-system data):
+If you use this code, please cite the manuscript above (full reference to be added upon publication) and the original GMCC article:
 
 ```bibtex
 @article{wiyono2026gmcc,
@@ -177,6 +123,5 @@ MIT License — see [LICENSE](LICENSE).
 
 ## Contact
 
-Slamet Wiyono — Department of Electrical and Information Engineering, Universitas Gadjah Mada, Yogyakarta, Indonesia.
-
-Corresponding author: Teguh Bharata Adji — <adji@ugm.ac.id>
+Slamet Wiyono — Department of Electrical and Information Engineering, Universitas Gadjah Mada, Yogyakarta, Indonesia; Faculty of Science and Technology, Universitas Harkat Negeri, Tegal, Indonesia.
+Corresponding author: Teguh Bharata Adji — adji@ugm.ac.id
