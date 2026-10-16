@@ -1,0 +1,13 @@
+rule,rule_description,hvg_mapped,background_size,estimator,module_method,n_modules,module_genes,module_genes_mapped,mapping_rate_pct,significant_terms
+last_entry,original rule: final entry of BioMart table,1691,1684,GMCC,connected components,2,708,587,82.9,9
+last_entry,original rule: final entry of BioMart table,1691,1684,Pearson,connected components,1,1870,1580,84.5,0
+last_entry,original rule: final entry of BioMart table,1691,1684,Cosine,connected components,2,878,754,85.9,86
+last_entry,original rule: final entry of BioMart table,1691,1684,Spearman,connected components,1,1550,1322,85.3,0
+one2one,Ensembl ortholog_one2one,1610,1610,GMCC,connected components,2,708,552,78.0,9
+one2one,Ensembl ortholog_one2one,1610,1610,Pearson,connected components,1,1870,1509,80.7,0
+one2one,Ensembl ortholog_one2one,1610,1610,Cosine,connected components,2,878,722,82.2,7
+one2one,Ensembl ortholog_one2one,1610,1610,Spearman,connected components,1,1550,1261,81.4,0
+one2one_hc,"Ensembl ortholog_one2one, confidence = 1",1574,1574,GMCC,connected components,2,708,535,75.6,11
+one2one_hc,"Ensembl ortholog_one2one, confidence = 1",1574,1574,Pearson,connected components,1,1870,1474,78.8,0
+one2one_hc,"Ensembl ortholog_one2one, confidence = 1",1574,1574,Cosine,connected components,2,878,705,80.3,6
+one2one_hc,"Ensembl ortholog_one2one, confidence = 1",1574,1574,Spearman,connected components,1,1550,1231,79.4,0

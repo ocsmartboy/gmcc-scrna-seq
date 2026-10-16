@@ -19,7 +19,7 @@ print("=" * 60)
 print("\n[1/5] Mempersiapkan data...")
 HERE = os.path.dirname(os.path.abspath(__file__))
 REPO = os.path.dirname(os.path.dirname(HERE))
-save_dir = os.path.join(REPO, "data", "processed")"
+save_dir = os.path.join(REPO, "data", "processed")
 X           = np.load(f"{save_dir}/X_2000hvg.npy")
 global_mean = np.load(f"{save_dir}/global_mean_2000hvg.npy")[0]
 

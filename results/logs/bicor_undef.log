@@ -1,0 +1,17 @@
+============================================================
+STANDARD BICOR (NO FALLBACK) — DEGENERACY CHECK
+============================================================
+./src/analysis/bicor_standard_check.py:23: RuntimeWarning: invalid value encountered in divide
+  sim = (X_t / norms) @ (X_t / norms).T
+
+PBMC3K:
+  Total entri similarity matrix : 4,000,000
+  NaN (undefined)               : 3,997,296 (99.93%)
+  Valid (defined)               : 2,704 (0.07%)
+
+Paul15:
+  Total entri similarity matrix : 4,000,000
+  NaN (undefined)               : 3,931,356 (98.28%)
+  Valid (defined)               : 68,644 (1.72%)
+
+SELESAI

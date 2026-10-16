@@ -1,0 +1,56 @@
+============================================================
+THRESHOLD SENSITIVITY ANALYSIS
+============================================================
+
+[1/2] Memuat data...
+
+[2/2] Menghitung clustering coefficient...
+
+  Percentile 90:
+    GMCC       PBMC3K  : CC=0.4229 (35.1s)
+    GMCC       Paul15  : CC=0.4357 (31.9s)
+    Pearson    PBMC3K  : CC=0.2225 (17.9s)
+    Pearson    Paul15  : CC=0.5628 (25.3s)
+    Cosine     PBMC3K  : CC=0.6908 (35.7s)
+    Cosine     Paul15  : CC=0.4872 (34.6s)
+    Spearman   PBMC3K  : CC=0.2334 (19.4s)
+    Spearman   Paul15  : CC=0.6187 (27.1s)
+    Bicor-SD   PBMC3K  : CC=0.5604 (38.1s)
+    Bicor-SD   Paul15  : CC=0.4868 (37.4s)
+
+  Percentile 95:
+    GMCC       PBMC3K  : CC=0.3032 (14.7s)
+    GMCC       Paul15  : CC=0.3073 (14.1s)
+    Pearson    PBMC3K  : CC=0.2169 (6.2s)
+    Pearson    Paul15  : CC=0.5797 (9.8s)
+    Cosine     PBMC3K  : CC=0.6111 (13.7s)
+    Cosine     Paul15  : CC=0.3724 (13.6s)
+    Spearman   PBMC3K  : CC=0.2294 (7.8s)
+    Spearman   Paul15  : CC=0.5584 (10.4s)
+    Bicor-SD   PBMC3K  : CC=0.5506 (15.0s)
+    Bicor-SD   Paul15  : CC=0.4102 (15.4s)
+
+  Percentile 97.5:
+    GMCC       PBMC3K  : CC=0.2046 (5.6s)
+    GMCC       Paul15  : CC=0.2173 (4.9s)
+    Pearson    PBMC3K  : CC=0.2640 (2.4s)
+    Pearson    Paul15  : CC=0.4998 (3.4s)
+    Cosine     PBMC3K  : CC=0.4658 (5.5s)
+    Cosine     Paul15  : CC=0.2862 (5.1s)
+    Spearman   PBMC3K  : CC=0.2779 (3.1s)
+    Spearman   Paul15  : CC=0.4700 (3.8s)
+    Bicor-SD   PBMC3K  : CC=0.4323 (4.6s)
+    Bicor-SD   Paul15  : CC=0.3504 (4.3s)
+
+============================================================
+RINGKASAN: |Delta| Cross-Dataset per Percentile Threshold
+============================================================
+
+Method     P90       P95       P97.5    
+GMCC       0.0128   0.0041   0.0127   
+Pearson    0.3404   0.3628   0.2358   
+Cosine     0.2036   0.2387   0.1796   
+Spearman   0.3853   0.3289   0.1921   
+Bicor-SD   0.0736   0.1403   0.0818   
+
+SELESAI

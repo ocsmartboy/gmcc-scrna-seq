@@ -1,0 +1,51 @@
+Data folder: ./data/processed
+
+==========================================================================
+PBMC 3K: 2000 genes x 2700 cells, mu0 = 0.177591, gene pairs = 1,999,000
+==========================================================================
+
+[Unperturbed matrix]
+  all-zero gene profiles        : 0
+  zero-variance gene profiles   : 0
+  GMCC zero-norm profiles (x-mu): 0
+
+[Controlled masking]
+  Level   realised mean      min      max  max const. genes  max all-zero genes
+   10%         0.100079   0.0993   0.1008                 1                   1
+   30%         0.300184   0.2988   0.3016                 5                   5
+   50%         0.500138   0.4985   0.5018                26                  26
+   70%         0.700063   0.6981   0.7013                59                  59
+  Masking levels nested within each seed: True
+
+[Unperturbed similarity values]
+  Estimator    NaN    MAD(s0)      edges P90   ties      edges P95   ties    edges P97.5   ties
+  GMCC           0   0.111243        199,900      1         99,950      0         49,975      0
+  Pearson        0   0.011275        199,900      0         99,950      0         49,975      0
+  Cosine         0   0.035146        199,900      0         99,950      0         49,975      1
+  Spearman       0   0.013941        199,900      0         99,950      1         49,975      0
+  Expected edges with no ties: P90: 199,900, P95: 99,950, P97.5: 49,975
+
+==========================================================================
+Paul15: 2000 genes x 2730 cells, mu0 = 0.498019, gene pairs = 1,999,000
+==========================================================================
+
+[Unperturbed matrix]
+  all-zero gene profiles        : 0
+  zero-variance gene profiles   : 0
+  GMCC zero-norm profiles (x-mu): 0
+
+[Controlled masking]
+  Level   realised mean      min      max  max const. genes  max all-zero genes
+   10%         0.100039   0.0995   0.1006                 0                   0
+   30%         0.299932   0.2990   0.3010                 0                   0
+   50%         0.500120   0.4993   0.5010                 1                   1
+   70%         0.700165   0.6990   0.7007                 3                   3
+  Masking levels nested within each seed: True
+
+[Unperturbed similarity values]
+  Estimator    NaN    MAD(s0)      edges P90   ties      edges P95   ties    edges P97.5   ties
+  GMCC           0   0.193446        199,900      0         99,950      0         49,975      1
+  Pearson        0   0.025932        199,900      0         99,950      0         49,975      0
+  Cosine         0   0.076520        199,900      0         99,950      0         49,975      0
+  Spearman       0   0.028737        199,900      0         99,950      0         49,975      0
+  Expected edges with no ties: P90: 199,900, P95: 99,950, P97.5: 49,975

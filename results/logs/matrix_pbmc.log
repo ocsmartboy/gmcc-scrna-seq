@@ -1,0 +1,66 @@
+============================================================
+STAGE 2 (2000 HVG): IMPLEMENTASI SIMILARITY — VECTORIZED
+============================================================
+
+[1/4] Mempersiapkan data (2000 HVG)...
+      Shape  : 2000 gen × 2700 sel
+      Sparsity: 91.4%
+      Global mean (μ) = 0.177591
+
+[2/4] Mendefinisikan fungsi similarity vectorized...
+      ✓ GMCC, Pearson, Cosine, Spearman, Bicor siap
+
+[3/4] Menghitung similarity matrix (2000 × 2000)...
+
+      GMCC... selesai (0.1s)
+        Mean  : 0.0897
+        Std   : 0.2482
+        Min   : -0.9493
+        Max   : 0.9903
+
+      Pearson... selesai (0.1s)
+        Mean  : 0.0035
+        Std   : 0.0346
+        Min   : -0.6547
+        Max   : 0.8725
+
+      Cosine... selesai (0.1s)
+        Mean  : 0.0547
+        Std   : 0.0701
+        Min   : 0.0000
+        Max   : 0.9910
+
+      Spearman... selesai (0.5s)
+        Mean  : 0.0077
+        Std   : 0.0335
+        Min   : -0.6103
+        Max   : 0.7823
+
+      Bicor... selesai (0.2s)
+        Mean  : 0.0456
+        Std   : 0.0640
+        Min   : -0.6513
+        Max   : 1.0000
+
+============================================================
+RINGKASAN STAGE 2 (2000 HVG)
+============================================================
+
+  Gen dianalisis  : 2000
+  Sel             : 2700
+  Pasangan gen    : 1,999,000
+  Global mean μ   : 0.177591
+
+  Metode           Mean      Std      Min      Max
+  ------------------------------------------------
+  GMCC           0.0897   0.2482  -0.9493   0.9903
+  Pearson        0.0035   0.0346  -0.6547   0.8725
+  Cosine         0.0547   0.0701   0.0000   0.9910
+  Spearman       0.0077   0.0335  -0.6103   0.7823
+  Bicor          0.0456   0.0640  -0.6513   1.0000
+
+  Existing ./data/processed/X_2000hvg.npy found; not overwritten.
+  Stored mu = 0.177591, new mu = 0.177591
+  RESULT: MATCH
+
+✓ Stage 2 selesai. Lanjut ke Stage 3 (dropout simulation).

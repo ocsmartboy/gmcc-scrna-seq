@@ -1,0 +1,9 @@
+dataset,masking,n_genes,undefined_genes_min,undefined_genes_max,undefined_genes_mean,n_pairs,excluded_pairs_mean,excluded_pairs_pct_per_level,excluded_pairs_pct_fixed_70
+PBMC3K,0.1,2000,0,1,0.15,1999000,299.9,0.015,5.001
+PBMC3K,0.3,2000,0,5,1.95,1999000,3896.2,0.195,5.001
+PBMC3K,0.5,2000,6,26,13.6,1999000,27091.7,1.355,5.001
+PBMC3K,0.7,2000,41,59,50.65,1999000,99977.1,5.001,5.001
+Paul15,0.1,2000,0,0,0.0,1999000,0.0,0.0,0.11
+Paul15,0.3,2000,0,0,0.0,1999000,0.0,0.0,0.11
+Paul15,0.5,2000,0,1,0.15,1999000,299.9,0.015,0.11
+Paul15,0.7,2000,0,3,1.1,1999000,2198.4,0.11,0.11

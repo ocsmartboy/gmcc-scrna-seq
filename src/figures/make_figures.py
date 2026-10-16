@@ -285,6 +285,20 @@ if __name__ == "__main__":
 
     print_summary(tau, "Kendall's tau_b (Figure 1)")
     print_summary(nmac_values, "NMAC (Figure 2)")
+
+    # Supplementary Table S2: NMAC mean and sample SD per condition
+    res_dir = os.path.join(REPO, "results")
+    os.makedirs(res_dir, exist_ok=True)
+    nmac_csv = os.path.join(res_dir, "nmac.csv")
+    with open(nmac_csv, "w") as f:
+        f.write("dataset,estimator,masking,mean_nmac,sd_nmac\n")
+        for ds in DATASETS:
+            for method in ORDER:
+                for r in MASKING_LEVELS:
+                    v = nmac_values[(ds, method, r)]
+                    f.write(f"{ds},{method},{r},{np.nanmean(v):.6f},"
+                            f"{np.nanstd(v, ddof=1):.6f}\n")
+    print(f"Saved: {nmac_csv}")
     print(f"\nWritten to {FIG_DIR}:")
     print("  Figure_1.{pdf,png}                      (manuscript)")
     print("  Figure_2.{pdf,png}                      (manuscript)")

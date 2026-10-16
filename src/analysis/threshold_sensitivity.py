@@ -72,7 +72,7 @@ methods  = {
     "Pearson" : lambda X, mu: pearson_vectorized(X),
     "Cosine"  : lambda X, mu: cosine_vectorized(X),
     "Spearman": lambda X, mu: spearman_vectorized(X),
-    "Bicor"   : lambda X, mu: bicor_vectorized(X),
+    "Bicor-SD": lambda X, mu: bicor_vectorized(X),
 }
 percentiles = [90, 95, 97.5]
 

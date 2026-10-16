@@ -1,0 +1,118 @@
+============================================================
+STAGE 6 (2000 HVG): NETWORK MODULES AND GO ENRICHMENT
+Background: 2,000 highly variable genes (not library default)
+============================================================
+
+[1/4] Preparing data...
+
+  0%|          | 0.00/5.58M [00:00<?, ?B/s]
+  5%|▍         | 280k/5.58M [00:00<00:02, 2.75MB/s]
+ 11%|█▏        | 648k/5.58M [00:00<00:01, 3.27MB/s]
+ 18%|█▊        | 1.01M/5.58M [00:00<00:01, 3.51MB/s]
+ 24%|██▍       | 1.34M/5.58M [00:00<00:01, 3.47MB/s]
+ 30%|██▉       | 1.67M/5.58M [00:00<00:01, 3.46MB/s]
+ 35%|███▌      | 1.98M/5.58M [00:00<00:01, 3.35MB/s]
+ 41%|████      | 2.27M/5.58M [00:00<00:01, 3.21MB/s]
+ 47%|████▋     | 2.62M/5.58M [00:00<00:00, 3.31MB/s]
+ 52%|█████▏    | 2.88M/5.58M [00:00<00:00, 3.11MB/s]
+ 58%|█████▊    | 3.23M/5.58M [00:01<00:00, 3.23MB/s]
+ 62%|██████▏   | 3.46M/5.58M [00:01<00:00, 2.98MB/s]
+ 68%|██████▊   | 3.82M/5.58M [00:01<00:00, 3.18MB/s]
+ 74%|███████▎  | 4.12M/5.58M [00:01<00:00, 3.14MB/s]
+ 80%|███████▉  | 4.45M/5.58M [00:01<00:00, 3.20MB/s]
+ 85%|████████▌ | 4.77M/5.58M [00:01<00:00, 3.24MB/s]
+ 91%|█████████▏| 5.10M/5.58M [00:01<00:00, 3.28MB/s]
+ 98%|█████████▊| 5.46M/5.58M [00:01<00:00, 3.37MB/s]
+100%|██████████| 5.58M/5.58M [00:01<00:00, 3.27MB/s]
+      Genes available: 2000
+      Enrichment background: 2000 genes
+
+[2/4] Defining functions...
+      Functions ready
+
+[3/4] Building networks and extracting modules...
+      (percentile-95 threshold)
+      GMCC... done  (connected components)
+        Modules found: 3
+        Module 1: 589 genes - 7SK-2, ABCB1, ABCC10, ABCC3...
+        Module 2: 92 genes - ACTB, AIF1, ANAPC16, ARPC1B...
+        Module 3: 13 genes - CCL4, CCL5, CST7, CTSW...
+      Pearson... done  (community detection)
+        Modules found: 3
+        Module 1: 1395 genes - 7SK-2, AAGAB, AAR2, AATF...
+        Module 2: 426 genes - ABHD5, ABI3, ACPP, ACTB...
+        Module 3: 179 genes - ABCC3, AC004069.2, AC007879.7, AC092295.7...
+      Cosine... done  (connected components)
+        Modules found: 1
+        Module 1: 1593 genes - 7SK-2, AATF, ABCC3, ABI2...
+      Spearman... done  (community detection)
+        Modules found: 3
+        Module 1: 1392 genes - 7SK-2, AAGAB, AAR2, AATF...
+        Module 2: 442 genes - ABHD5, ABI3, AC005082.12, ACPP...
+        Module 3: 166 genes - ABCC3, AC004069.2, AC007879.7, AC092295.7...
+
+[4/4] GO enrichment analysis...
+      Background: 2000 HVGs
+
+  -- GMCC --
+    Module 1 (589 genes): 0 significant GO terms
+    Module 2 (92 genes): 65 significant GO terms
+      - Antigen Processing And Presentation Of Exogen
+        p-adj=1.85e-07
+      - Antigen Processing And Presentation Of Exogen
+        p-adj=1.85e-07
+      - Antigen Processing And Presentation Of Peptid
+        p-adj=1.85e-07
+    Module 3 (13 genes): 82 significant GO terms
+      - Apoptotic Process (GO:0006915)
+        p-adj=3.87e-04
+      - Proteolysis Involved In Protein Catabolic Pro
+        p-adj=5.95e-03
+      - Protein Catabolic Process (GO:0030163)
+        p-adj=5.95e-03
+
+  -- Pearson --
+    Module 1 (1395 genes): 0 significant GO terms
+    Module 2 (426 genes): 10 significant GO terms
+      - Response To Lipopolysaccharide (GO:0032496)
+        p-adj=3.56e-03
+      - Positive Regulation Of Defense Response (GO:0
+        p-adj=3.56e-03
+      - Positive Regulation Of Inflammatory Response 
+        p-adj=3.56e-03
+    Module 3 (179 genes): 0 significant GO terms
+
+  -- Cosine --
+    Module 1 (1593 genes): 0 significant GO terms
+
+  -- Spearman --
+    Module 1 (1392 genes): 0 significant GO terms
+    Module 2 (442 genes): 9 significant GO terms
+      - Positive Regulation Of Defense Response (GO:0
+        p-adj=1.64e-03
+      - Positive Regulation Of Inflammatory Response 
+        p-adj=1.64e-03
+      - Positive Regulation Of Response To External S
+        p-adj=1.64e-03
+    Module 3 (166 genes): 0 significant GO terms
+
+============================================================
+SUMMARY - equivalent of manuscript Table 6
+============================================================
+
+  Method      Modules  Genes tested  GO terms  Terms/gene
+  -------------------------------------------------------
+  GMCC              3           694       147       0.212
+  Pearson           3         2,000        10       0.005
+  Cosine            1         1,593         0       0.000
+  Spearman          3         2,000         9       0.004
+
+  Per-module counts:
+    GMCC      : [0, 65, 82]
+    Pearson   : [0, 10, 0]
+    Cosine    : [0]
+    Spearman  : [0, 9, 0]
+
+  CSV files written to D:\S3\Eksperimen\Bioinformatika\gmcc-scrna-seq\results\go_enrichment
+  Compare against the earlier default-background results before
+  updating the manuscript.

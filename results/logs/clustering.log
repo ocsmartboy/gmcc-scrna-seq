@@ -1,0 +1,74 @@
+============================================================
+STAGE 7 (2000 HVG): CELL CLUSTERING + ABLATION STUDY
+============================================================
+
+[1/5] Mempersiapkan data...
+      Shape (sel × gen) : 2700 × 2000
+      Global mean       : 0.177591
+
+[2/5] Mendefinisikan fungsi...
+      ✓ Fungsi siap
+
+[3/5] Pipeline 1: Standar Scanpy (PCA + Pearson)...
+      Jumlah cluster : 6
+        Cluster 0: 1218 sel  ████████████
+        Cluster 1:  654 sel  ██████
+        Cluster 2:  426 sel  ████
+        Cluster 3:  355 sel  ███
+        Cluster 4:   34 sel  
+        Cluster 5:   13 sel  
+
+[4/5] Pipeline 2: GMCC tanpa PCA...
+      Menghitung GMCC similarity antar sel... ✓
+      Membangun neighbor graph... ✓
+WARNING: .obsp["connectivities"] have not been computed using umap
+      Jumlah cluster : 4
+        Cluster 0: 1189 sel  ███████████
+        Cluster 1:  702 sel  ███████
+        Cluster 2:  455 sel  ████
+        Cluster 3:  354 sel  ███
+
+[5/5] Pipeline 3: PCA + GMCC (Ablation Study)...
+      Tujuan: apakah PCA mengubah karakteristik GMCC?
+      Global mean PCA space : -0.000000
+      Menghitung GMCC pada ruang PCA... ✓
+      Membangun neighbor graph... ✓
+WARNING: .obsp["connectivities"] have not been computed using umap
+      Jumlah cluster : 6
+        Cluster 0: 1162 sel  ███████████
+        Cluster 1:  650 sel  ██████
+        Cluster 2:  483 sel  ████
+        Cluster 3:  350 sel  ███
+        Cluster 4:   38 sel  
+        Cluster 5:   17 sel  
+
+[6/6] Evaluasi clustering...
+
+============================================================
+RINGKASAN STAGE 7 (2000 HVG)
+============================================================
+
+Metrik                            Standar       GMCC   PCA+GMCC
+--------------------------------------------------------------
+Jumlah cluster                          6          4          6
+Silhouette Score                   0.1888     0.1557     0.1845
+
+Perbandingan ARI (vs Standar)           
+  GMCC vs Standar          : 0.9146
+  PCA+GMCC vs Standar      : 0.9301
+  GMCC vs PCA+GMCC         : 0.9205
+
+Perbandingan NMI (vs Standar)           
+  GMCC vs Standar          : 0.8879
+  PCA+GMCC vs Standar      : 0.9152
+  GMCC vs PCA+GMCC         : 0.8986
+
+── Interpretasi Ablation Study ──
+  GMCC ≈ PCA+GMCC (ARI > 0.85)
+  → GMCC tidak memerlukan PCA preprocessing
+  → Global centering sudah menangkap
+    struktur varians yang relevan
+
+  Visualisasi disimpan: D:\S3\Eksperimen\Bioinformatika\gmcc-scrna-seq\figures\Figure_S1.png
+
+✓ Stage 7 selesai.

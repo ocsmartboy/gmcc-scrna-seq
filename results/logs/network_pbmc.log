@@ -1,0 +1,140 @@
+============================================================
+STAGE 5 (2000 HVG): GENE CO-EXPRESSION NETWORK
+============================================================
+
+[1/4] Mempersiapkan data...
+      Shape      : 2000 gen × 2700 sel
+      Gen tersedia: 2000
+
+[2/4] Mendefinisikan fungsi...
+      ✓ Semua fungsi siap
+
+[3/4] Menghitung similarity dan membangun jaringan...
+      (Menggunakan threshold persentil ke-95)
+      = top 5% pasangan gen paling mirip
+
+      Menghitung GMCC... similarity ✓ (0.1s)
+      GMCC (threshold=0.5797):
+        Edge (koneksi)      : 99,950
+        Density             : 0.050000
+        Avg clustering coef : 0.3032
+        Connected components: 1308
+        Avg degree          : 99.95
+
+      Menghitung Pearson... similarity ✓ (0.1s)
+      Pearson (threshold=0.0467):
+        Edge (koneksi)      : 99,950
+        Density             : 0.050000
+        Avg clustering coef : 0.2169
+        Connected components: 1
+        Avg degree          : 99.95
+
+      Menghitung Cosine... similarity ✓ (0.1s)
+      Cosine (threshold=0.1830):
+        Edge (koneksi)      : 99,950
+        Density             : 0.050000
+        Avg clustering coef : 0.6111
+        Connected components: 372
+        Avg degree          : 99.95
+
+      Menghitung Spearman... similarity ✓ (0.4s)
+      Spearman (threshold=0.0537):
+        Edge (koneksi)      : 99,950
+        Density             : 0.050000
+        Avg clustering coef : 0.2294
+        Connected components: 1
+        Avg degree          : 99.95
+
+      Menghitung Bicor... similarity ✓ (0.2s)
+      Bicor (threshold=0.1622):
+        Edge (koneksi)      : 99,950
+        Density             : 0.050000
+        Avg clustering coef : 0.5506
+        Connected components: 376
+        Avg degree          : 99.95
+
+
+[4/4] Analisis lanjutan...
+
+  ── Top 10 gen paling terhubung ──
+
+  GMCC:
+     1. HRASLS               → 522 koneksi
+     2. SEC14L5              → 522 koneksi
+     3. TLR3                 → 521 koneksi
+     4. MEG3                 → 521 koneksi
+     5. MAP1A                → 521 koneksi
+     6. RP4-773N10.4         → 520 koneksi
+     7. BEND2                → 517 koneksi
+     8. OMG                  → 517 koneksi
+     9. MEIS1                → 516 koneksi
+    10. LINC00959            → 515 koneksi
+
+  Pearson:
+     1. SRGN                 → 552 koneksi
+     2. ACTB                 → 546 koneksi
+     3. FCER1G               → 491 koneksi
+     4. SAT1                 → 462 koneksi
+     5. CST3                 → 462 koneksi
+     6. TYROBP               → 461 koneksi
+     7. FCGR3A               → 460 koneksi
+     8. LGALS1               → 460 koneksi
+     9. LST1                 → 445 koneksi
+    10. OAZ1                 → 441 koneksi
+
+  Cosine:
+     1. B2M                  → 1062 koneksi
+     2. MT-CO1               → 1059 koneksi
+     3. RPL13                → 1055 koneksi
+     4. ACTB                 → 1053 koneksi
+     5. MALAT1               → 1050 koneksi
+     6. RPS4X                → 1046 koneksi
+     7. RPL8                 → 1043 koneksi
+     8. RPS5                 → 1032 koneksi
+     9. RPS3A                → 1029 koneksi
+    10. H3F3B                → 1028 koneksi
+
+  Spearman:
+     1. ACTB                 → 587 koneksi
+     2. SRGN                 → 551 koneksi
+     3. FCER1G               → 525 koneksi
+     4. FCGR3A               → 495 koneksi
+     5. BIRC5                → 495 koneksi
+     6. LGALS1               → 486 koneksi
+     7. CST3                 → 485 koneksi
+     8. LST1                 → 480 koneksi
+     9. TYMP                 → 480 koneksi
+    10. IFI30                → 479 koneksi
+
+  Bicor:
+     1. PPIB                 → 846 koneksi
+     2. LGALS1               → 838 koneksi
+     3. PSMB8                → 837 koneksi
+     4. HLA-DPA1             → 823 koneksi
+     5. SRSF3                → 820 koneksi
+     6. SNX3                 → 814 koneksi
+     7. ARL6IP5              → 811 koneksi
+     8. GSTP1                → 805 koneksi
+     9. CAP1                 → 802 koneksi
+    10. GIMAP4               → 798 koneksi
+
+  ── Overlap edge GMCC vs metode lain ──
+  GMCC ∩ Pearson     : 6,768 edge bersama (6.8% dari GMCC edges)
+  GMCC ∩ Cosine      : 4,249 edge bersama (4.3% dari GMCC edges)
+  GMCC ∩ Spearman    : 8,319 edge bersama (8.3% dari GMCC edges)
+  GMCC ∩ Bicor       : 1,065 edge bersama (1.1% dari GMCC edges)
+
+============================================================
+RINGKASAN STAGE 5 (2000 HVG, Persentil ke-95)
+============================================================
+
+Properti                          GMCC   Pearson    Cosine  Spearman     Bicor
+------------------------------------------------------------------------------
+Threshold                       0.5797    0.0467    0.1830    0.0537    0.1622
+Jumlah edge                     99,950    99,950    99,950    99,950    99,950
+Density                       0.050000  0.050000  0.050000  0.050000  0.050000
+Avg clustering coef             0.3032    0.2169    0.6111    0.2294    0.5506
+Connected components              1308         1       372         1       376
+Avg degree                       99.95     99.95     99.95     99.95     99.95
+
+✓ Stage 5 selesai. Siap untuk Stage 6 (GO Enrichment).

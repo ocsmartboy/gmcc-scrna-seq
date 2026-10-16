@@ -1,5 +1,6 @@
 import scanpy as sc
 import numpy as np
+import os
 import networkx as nx
 from scipy.stats import rankdata
 import time
@@ -13,7 +14,9 @@ print("=" * 60)
 
 # ── 1. LOAD DATA ──────────────────────────────────────────────
 print("\n[1/4] Memuat data...")
-save_dir = ("data/processed")
+HERE = os.path.dirname(os.path.abspath(__file__))
+REPO = os.path.dirname(os.path.dirname(HERE))
+save_dir = os.path.join(REPO, "data", "processed")
 
 X           = np.load(f"{save_dir}/X_paul15.npy")
 global_mean = np.load(f"{save_dir}/global_mean_paul15.npy")[0]

@@ -1,0 +1,35 @@
+
+========================================================================
+DATASET: PBMC3K  genes=2000  constant genes in unperturbed matrix=0
+========================================================================
+  10%: done (188.0s), undefined genes per realisation 0-1
+  30%: done (201.7s), undefined genes per realisation 0-5
+  50%: done (202.0s), undefined genes per realisation 6-26
+  70%: done (196.6s), undefined genes per realisation 41-59
+
+========================================================================
+DATASET: Paul15  genes=2000  constant genes in unperturbed matrix=0
+========================================================================
+  10%: done (182.7s), undefined genes per realisation 0-0
+  30%: done (200.0s), undefined genes per realisation 0-0
+  50%: done (205.7s), undefined genes per realisation 0-1
+  70%: done (211.3s), undefined genes per realisation 0-3
+Saved: ./results/sensitivity_coverage.csv
+Saved: ./results/sensitivity_mean_tau.csv
+Saved: ./results/sensitivity_paired_tests.csv
+
+========================================================================
+MEAN TAU - PBMC3K  (primary | per_level | fixed_70)
+========================================================================
+   10%  GMCC 0.966|0.966|0.964  Pear 0.760|0.760|0.759  Cosi 0.908|0.909|0.907  Spea 0.770|0.770|0.769  Bico 0.876|0.876|0.871
+   30%  GMCC 0.929|0.929|0.926  Pear 0.538|0.539|0.539  Cosi 0.796|0.796|0.794  Spea 0.552|0.552|0.552  Bico 0.733|0.733|0.725
+   50%  GMCC 0.887|0.886|0.882  Pear 0.365|0.367|0.367  Cosi 0.694|0.693|0.691  Spea 0.374|0.377|0.377  Bico 0.595|0.592|0.585
+   70%  GMCC 0.822|0.814|0.814  Pear 0.201|0.207|0.207  Cosi 0.581|0.575|0.575  Spea 0.199|0.206|0.206  Bico 0.465|0.459|0.459
+
+========================================================================
+MEAN TAU - Paul15  (primary | per_level | fixed_70)
+========================================================================
+   10%  GMCC 0.978|0.978|0.978  Pear 0.838|0.838|0.838  Cosi 0.946|0.946|0.946  Spea 0.854|0.854|0.854  Bico 0.794|0.794|0.793
+   30%  GMCC 0.952|0.952|0.952  Pear 0.677|0.677|0.677  Cosi 0.885|0.885|0.885  Spea 0.703|0.703|0.703  Bico 0.476|0.476|0.475
+   50%  GMCC 0.921|0.921|0.921  Pear 0.523|0.523|0.523  Cosi 0.819|0.819|0.819  Spea 0.550|0.550|0.550  Bico 0.301|0.301|0.300
+   70%  GMCC 0.869|0.869|0.869  Pear 0.347|0.347|0.347  Cosi 0.724|0.724|0.724  Spea 0.367|0.368|0.368  Bico 0.252|0.252|0.252

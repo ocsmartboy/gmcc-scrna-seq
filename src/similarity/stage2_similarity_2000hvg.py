@@ -1,6 +1,7 @@
 import scanpy as sc
 import numpy as np
 import os
+import sys
 from scipy.stats import rankdata
 from scipy.sparse import issparse
 import time
@@ -180,7 +181,17 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 REPO = os.path.dirname(os.path.dirname(HERE))
 save_dir = os.path.join(REPO, "data", "processed")
 os.makedirs(save_dir, exist_ok=True)
-np.save(f"{save_dir}/X_2000hvg.npy", X)
-np.save(f"{save_dir}/global_mean_2000hvg.npy", np.array([global_mean]))
-print("\n  File disimpan di data/processed/")
+# Existing matrices are compared, not overwritten (use --overwrite).
+x_path = f"{save_dir}/X_2000hvg.npy"
+mu_path = f"{save_dir}/global_mean_2000hvg.npy"
+if os.path.exists(x_path) and os.path.exists(mu_path) and "--overwrite" not in sys.argv:
+    X_old = np.load(x_path)
+    same = X_old.shape == X.shape and np.allclose(X_old, X, rtol=0, atol=1e-6)
+    print(f"\n  Existing {x_path} found; not overwritten.")
+    print(f"  Stored mu = {np.load(mu_path)[0]:.6f}, new mu = {global_mean:.6f}")
+    print("  RESULT: MATCH" if same else "  RESULT: DIFFERENT - check before use")
+else:
+    np.save(x_path, X)
+    np.save(mu_path, np.array([global_mean]))
+    print("\n  Saved to data/processed/")
 print("\n✓ Stage 2 selesai. Lanjut ke Stage 3 (dropout simulation).")

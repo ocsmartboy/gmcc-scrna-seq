@@ -1,0 +1,17 @@
+================================================================
+STAGE 2 (Paul15): PREPROCESSED 2,000-HVG MATRIX
+================================================================
+  Cells                          : 2730
+  Genes (raw)                    : 3451
+  Sparsity (raw)                 : 74.7%
+  Genes after HVG selection      : 2000
+  Sparsity (after preprocessing) : 77.2%   (manuscript: 77.2%)
+  Matrix-level mean, mu          : 0.4980   (manuscript: 0.4980)
+
+  Existing files found; comparing instead of overwriting.
+    stored shape (2000, 2730), new shape (2000, 2730)
+    identical (bit-for-bit) : False
+    max |difference|        : 4.768e-07
+    stored mu 0.498019  vs  new mu 0.498019
+    dtype stored/new        : float32 / float32
+    RESULT: MATCH - this script reproduces the stored matrix.

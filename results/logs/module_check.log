@@ -1,0 +1,29 @@
+==========================================================================
+MODULE-LEVEL ABUNDANCE CHECK (PBMC 3K, GMCC)
+==========================================================================
+
+Rebuilding gene names and network (must match Stage 6 exactly)...
+
+Dataset-wide detection rate: median=0.0411, IQR=[0.0115, 0.1027]
+
+Found 3 modules (>= 10 genes):
+
+Module    Size   Median DR   IQR low  IQR high  % below dataset Q1
+------------------------------------------------------------------
+1          589      0.0041    0.0019    0.0085               84.6%
+2           92      0.5176    0.3724    0.7322                0.0%
+3           13      0.1793    0.1137    0.2459                0.0%
+
+Interpretation guide:
+  - A module whose median detection rate is close to the dataset
+    median, with a low '% below dataset Q1', looks like ordinary
+    genes -- consistent with genuine co-expression (scenario A).
+  - A module whose median detection rate sits well below the
+    dataset Q1, with most members in the bottom quartile, overlaps
+    the low-detection cluster identified by
+    abundance_confounding.py (scenario B) -- its GO enrichment
+    should be re-examined before being reported as biological.
+
+Cross-reference module sizes above against the enrichment results
+in Table 6 (module sizes 589, 92, 13) to identify which module is
+which.

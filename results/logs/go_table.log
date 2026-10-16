@@ -1,0 +1,27 @@
+Rebuilding enrichment backgrounds...
+  PBMC 3K background: 2000 genes
+  Paul15 background:  1610 genes (expected 1610)
+
+Loading GO_Biological_Process_2023...
+  5,406 terms
+
+Reading enrichment results...
+  PBMC 3K  GMCC      module 2 (92 genes): 65 terms
+  PBMC 3K  GMCC      module 3 (13 genes): 82 terms
+  PBMC 3K  Pearson   module 2 (426 genes): 10 terms
+  PBMC 3K  Spearman  module 2 (442 genes): 9 terms
+  Paul15   Cosine    module 2 (11 genes): 7 terms
+  Paul15   GMCC      module 2 (139 genes): 9 terms
+
+Verification: recomputed hypergeometric p-values match the CSV for 180/182 terms
+  largest mismatch: CSV 7.227e-04 vs recomputed 6.464e-04
+  -> K may not match the background gseapy used; do NOT use the Overlap column until resolved.
+
+Total terms: 182 (expected 182: PBMC 147+10+9, Paul15 9+7)
+  PBMC 3K  GMCC       147
+  PBMC 3K  Pearson     10
+  PBMC 3K  Spearman     9
+  Paul15   GMCC         9
+  Paul15   Cosine       7
+
+Written: D:\S3\Eksperimen\Bioinformatika\gmcc-scrna-seq\results\go_enrichment\supplementary_go_terms.tex

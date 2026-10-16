@@ -1,0 +1,45 @@
+====================================================================
+PAUL15 GO ENRICHMENT: ORTHOLOGUE-RULE SENSITIVITY
+====================================================================
+
+[1/4] Loading data...
+
+[2/4] Networks and modules...
+      GMCC: [569, 139] (connected components)
+      Pearson: [1870] (connected components)
+      Cosine: [867, 11] (connected components)
+      Spearman: [1550] (connected components)
+
+[3/4] Orthologue rules...
+      Typed table loaded from cache: D:\S3\Eksperimen\Bioinformatika\gmcc-scrna-seq\data\processed\mouse_human_orthologs_typed.csv
+      last_entry     HVGs mapped  1691 / 2000  ->  1684 unique human symbols   [original rule: final entry of BioMart table]
+      one2one        HVGs mapped  1610 / 2000  ->  1610 unique human symbols   [Ensembl ortholog_one2one]
+      one2one_hc     HVGs mapped  1574 / 2000  ->  1574 unique human symbols   [Ensembl ortholog_one2one, confidence = 1]
+
+[4/4] GO enrichment...
+
+  == rule: last_entry (background 1684) ==
+    GMCC      M1  569 genes,  465 mapped:    0 terms  
+    GMCC      M2  139 genes,  122 mapped:    9 terms  Cytoplasmic Translation (GO:0002181)
+    Pearson   M1 1870 genes, 1580 mapped:    0 terms  
+    Cosine    M1  867 genes,  743 mapped:    0 terms  
+    Cosine    M2   11 genes,   11 mapped:   86 terms  Regulation Of Natural Killer Cell Chemotaxis 
+    Spearman  M1 1550 genes, 1322 mapped:    0 terms  
+
+  == rule: one2one (background 1610) ==
+    GMCC      M1  569 genes,  440 mapped:    0 terms  
+    GMCC      M2  139 genes,  112 mapped:    9 terms  Cytoplasmic Translation (GO:0002181)
+    Pearson   M1 1870 genes, 1509 mapped:    0 terms  
+    Cosine    M1  867 genes,  713 mapped:    0 terms  
+    Cosine    M2   11 genes,    9 mapped:    7 terms  Natural Killer Cell Activation (GO:0030101)
+    Spearman  M1 1550 genes, 1261 mapped:    0 terms  
+
+  == rule: one2one_hc (background 1574) ==
+    GMCC      M1  569 genes,  427 mapped:    0 terms  
+    GMCC      M2  139 genes,  108 mapped:   11 terms  Cytoplasmic Translation (GO:0002181)
+    Pearson   M1 1870 genes, 1474 mapped:    0 terms  
+    Cosine    M1  867 genes,  697 mapped:    0 terms  
+    Cosine    M2   11 genes,    8 mapped:    6 terms  Natural Killer Cell Activation (GO:0030101)
+    Spearman  M1 1550 genes, 1231 mapped:    0 terms  
+
+Saved summaries to D:\S3\Eksperimen\Bioinformatika\gmcc-scrna-seq\results\go_enrichment_orthologue_sensitivity

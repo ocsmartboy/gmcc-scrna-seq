@@ -1,0 +1,124 @@
+============================================================
+STAGE 5 — PAUL ET AL. 2015: GENE CO-EXPRESSION NETWORK
+(Topologi network saja, tanpa GO enrichment)
+============================================================
+
+[1/4] Memuat data...
+      Gen tersedia: 2000
+      Global mean : 0.498019
+
+[2/4] Mendefinisikan fungsi...
+      ✓ Semua fungsi siap
+
+[3/4] Menghitung similarity dan membangun jaringan...
+      (threshold persentil ke-95, konsisten dengan PBMC 3K)
+
+      Menghitung GMCC... similarity ✓ (0.1s)
+      GMCC (threshold=0.6685):
+        Edge (koneksi)      : 99,950
+        Density             : 0.050000
+        Avg clustering coef : 0.3073
+        Connected components: 1293
+        Avg degree          : 99.95
+
+      Menghitung Pearson... similarity ✓ (0.1s)
+      Pearson (threshold=0.1052):
+        Edge (koneksi)      : 99,950
+        Density             : 0.050000
+        Avg clustering coef : 0.5797
+        Connected components: 131
+        Avg degree          : 99.95
+
+      Menghitung Cosine... similarity ✓ (0.1s)
+      Cosine (threshold=0.4745):
+        Edge (koneksi)      : 99,950
+        Density             : 0.050000
+        Avg clustering coef : 0.3724
+        Connected components: 1107
+        Avg degree          : 99.95
+
+      Menghitung Spearman... similarity ✓ (0.6s)
+      Spearman (threshold=0.1250):
+        Edge (koneksi)      : 99,950
+        Density             : 0.050000
+        Avg clustering coef : 0.5584
+        Connected components: 443
+        Avg degree          : 99.95
+
+      Menghitung Bicor... similarity ✓ (0.3s)
+      Bicor (threshold=0.3474):
+        Edge (koneksi)      : 99,950
+        Density             : 0.050000
+        Avg clustering coef : 0.4102
+        Connected components: 952
+        Avg degree          : 99.95
+
+
+[4/4] Analisis lanjutan...
+
+  ── Top 5 gen paling terhubung per metode ──
+
+  GMCC:
+    1. Mcpt4           → 546 koneksi
+    2. Tmem29          → 543 koneksi
+    3. Mrvi1           → 538 koneksi
+    4. S100a9          → 538 koneksi
+    5. Cbr3            → 537 koneksi
+
+  Pearson:
+    1. Ermap           → 594 koneksi
+    2. Mt2             → 577 koneksi
+    3. Car2            → 575 koneksi
+    4. Cpox            → 574 koneksi
+    5. Rhd             → 572 koneksi
+
+  Cosine:
+    1. Actb            → 763 koneksi
+    2. Gm10653         → 748 koneksi
+    3. Ftl1            → 732 koneksi
+    4. Ubb             → 732 koneksi
+    5. Rplp2           → 727 koneksi
+
+  Spearman:
+    1. Ermap           → 624 koneksi
+    2. Aplp2           → 604 koneksi
+    3. Sphk1           → 603 koneksi
+    4. Cpox            → 602 koneksi
+    5. Rhd             → 598 koneksi
+
+  Bicor:
+    1. Cenp-a          → 619 koneksi
+    2. Dctn5           → 619 koneksi
+    3. Ncapd2          → 619 koneksi
+    4. Gclm            → 612 koneksi
+    5. Mns1            → 610 koneksi
+
+  ── Overlap edge GMCC vs metode lain ──
+  GMCC ∩ Pearson     : 2,898 edge bersama (2.9% dari GMCC edges)
+  GMCC ∩ Cosine      : 2,438 edge bersama (2.4% dari GMCC edges)
+  GMCC ∩ Spearman    : 1,363 edge bersama (1.4% dari GMCC edges)
+  GMCC ∩ Bicor       : 429 edge bersama (0.4% dari GMCC edges)
+
+============================================================
+RINGKASAN STAGE 5 — PAUL ET AL. 2015
+============================================================
+
+Properti                          GMCC   Pearson    Cosine  Spearman     Bicor
+------------------------------------------------------------------------------
+Threshold                       0.6685    0.1052    0.4745    0.1250    0.3474
+Jumlah edge                     99,950    99,950    99,950    99,950    99,950
+Avg clustering coef             0.3073    0.5797    0.3724    0.5584    0.4102
+Connected components              1293       131      1107       443       952
+
+── Perbandingan Clustering Coefficient Lintas Dataset ──
+
+  Metode          PBMC 3K     Paul15
+  ----------------------------------
+  GMCC             0.3032     0.3073
+  Pearson          0.2169     0.5797
+  Cosine           0.6111     0.3724
+  Spearman         0.2294     0.5584
+  Bicor            0.5506     0.4102
+
+✓ Stage 5 Paul et al. selesai.
+  Semua eksperimen inti untuk Paper 2 SELESAI.
