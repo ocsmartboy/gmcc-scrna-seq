@@ -1,0 +1,46 @@
+
+PBMC3K / all: 2000 genes, mu = 0.1776
+  GMCC      C=0.3032 comp= 1308 rho(deg,det)=-0.664 no-codet=91.1% above-ind=8.8%
+  Pearson   C=0.2169 comp=    1 rho(deg,det)=+0.195 no-codet=0.0% above-ind=99.8%
+  Cosine    C=0.6111 comp=  372 rho(deg,det)=+0.789 no-codet=0.0% above-ind=93.3%
+  Spearman  C=0.2294 comp=    1 rho(deg,det)=+0.259 no-codet=0.0% above-ind=99.8%
+  masking done (145s)
+
+PBMC3K / det5: 884 genes, mu = 0.3634
+  GMCC      C=0.4089 comp=  426 rho(deg,det)=-0.469 no-codet=0.0% above-ind=83.6%
+  Pearson   C=0.4186 comp=   10 rho(deg,det)=+0.470 no-codet=0.0% above-ind=99.7%
+  Cosine    C=0.5060 comp=  372 rho(deg,det)=+0.917 no-codet=0.0% above-ind=93.7%
+  Spearman  C=0.4031 comp=   26 rho(deg,det)=+0.432 no-codet=0.0% above-ind=99.6%
+  masking done (36s)
+
+PBMC3K / det10: 511 genes, mu = 0.5437
+  GMCC      C=0.4508 comp=  204 rho(deg,det)=-0.319 no-codet=0.0% above-ind=93.6%
+  Pearson   C=0.4385 comp=  200 rho(deg,det)=+0.438 no-codet=0.0% above-ind=99.6%
+  Cosine    C=0.4098 comp=  259 rho(deg,det)=+0.841 no-codet=0.0% above-ind=92.6%
+  Spearman  C=0.4329 comp=  210 rho(deg,det)=+0.405 no-codet=0.0% above-ind=99.5%
+  masking done (19s)
+
+Paul15 / all: 2000 genes, mu = 0.4980
+  GMCC      C=0.3073 comp= 1293 rho(deg,det)=-0.618 no-codet=44.9% above-ind=49.3%
+  Pearson   C=0.5797 comp=  131 rho(deg,det)=+0.562 no-codet=0.0% above-ind=100.0%
+  Cosine    C=0.3724 comp= 1107 rho(deg,det)=+0.870 no-codet=0.0% above-ind=98.8%
+  Spearman  C=0.5584 comp=  443 rho(deg,det)=+0.539 no-codet=0.0% above-ind=100.0%
+  masking done (163s)
+
+Paul15 / det5: 1452 genes, mu = 0.6700
+  GMCC      C=0.3921 comp=  779 rho(deg,det)=-0.416 no-codet=0.0% above-ind=76.2%
+  Pearson   C=0.6197 comp=  309 rho(deg,det)=+0.384 no-codet=0.0% above-ind=100.0%
+  Cosine    C=0.3962 comp=  771 rho(deg,det)=+0.898 no-codet=0.0% above-ind=99.1%
+  Spearman  C=0.6016 comp=  365 rho(deg,det)=+0.238 no-codet=0.0% above-ind=100.0%
+  masking done (103s)
+
+Paul15 / det10: 1181 genes, mu = 0.7934
+  GMCC      C=0.4501 comp=  515 rho(deg,det)=-0.290 no-codet=0.0% above-ind=88.3%
+  Pearson   C=0.6222 comp=  268 rho(deg,det)=+0.155 no-codet=0.0% above-ind=100.0%
+  Cosine    C=0.3973 comp=  619 rho(deg,det)=+0.889 no-codet=0.0% above-ind=99.3%
+  Spearman  C=0.6056 comp=  306 rho(deg,det)=-0.017 no-codet=0.0% above-ind=100.0%
+  masking done (77s)
+Saved: /home/claude/ctrl/repo/results/filtered_networks/gene_sets.csv
+Saved: /home/claude/ctrl/repo/results/filtered_networks/table3_table4_unperturbed.csv
+Saved: /home/claude/ctrl/repo/results/filtered_networks/tableS3_clustering_masking.csv
+Saved: /home/claude/ctrl/repo/results/filtered_networks/tableS4_percentile.csv

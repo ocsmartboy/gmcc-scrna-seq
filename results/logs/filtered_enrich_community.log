@@ -1,0 +1,86 @@
+
+PBMC3K / all: 2000 genes, background 2000, mu = 0.1776
+  GMCC      M1  329 genes (329 tested):    0 terms  
+  GMCC      M2  260 genes (260 tested):    0 terms  
+  GMCC      M3   92 genes (92 tested):   65 terms  Antigen Processing And Presentation Of Exogenous P
+  GMCC      M4   13 genes (13 tested):   82 terms  Apoptotic Process (GO:0006915)
+  Pearson   M1 1395 genes (1395 tested):    0 terms  
+  Pearson   M2  426 genes (426 tested):   10 terms  Positive Regulation Of Inflammatory Response (GO:0
+  Pearson   M3  179 genes (179 tested):    0 terms  
+  Cosine    M1  778 genes (778 tested):    0 terms  
+  Cosine    M2  380 genes (380 tested):   30 terms  Positive Regulation Of Response To External Stimul
+  Cosine    M3  317 genes (317 tested):    0 terms  
+  Cosine    M4   64 genes (64 tested):    0 terms  
+  Cosine    M5   10 genes (10 tested):   30 terms  Aggrephagy (GO:0035973)
+  Spearman  M1 1392 genes (1392 tested):    0 terms  
+  Spearman  M2  442 genes (442 tested):   10 terms  Positive Regulation Of Inflammatory Response (GO:0
+  Spearman  M3  166 genes (166 tested):    0 terms  
+
+PBMC3K / det5: 884 genes, background 884, mu = 0.3634
+  GMCC      M1  283 genes (283 tested):    0 terms  
+  GMCC      M2  176 genes (176 tested):   45 terms  Antigen Processing And Presentation Of Exogenous P
+  Pearson   M1  490 genes (490 tested):    0 terms  
+  Pearson   M2  267 genes (267 tested):    8 terms  Positive Regulation Of Inflammatory Response (GO:0
+  Pearson   M3   85 genes (85 tested):    0 terms  
+  Pearson   M4   17 genes (17 tested):    0 terms  
+  Cosine    M1  269 genes (269 tested):    0 terms  
+  Cosine    M2  200 genes (200 tested):   10 terms  Immunoglobulin Mediated Immune Response (GO:001606
+  Cosine    M3   44 genes (44 tested):   12 terms  Positive Regulation Of Defense Response (GO:003134
+  Spearman  M1  488 genes (488 tested):    0 terms  
+  Spearman  M2  259 genes (259 tested):    7 terms  Positive Regulation Of Inflammatory Response (GO:0
+  Spearman  M3   81 genes (81 tested):    0 terms  
+  Spearman  M4   11 genes (11 tested):    3 terms  Positive Regulation Of Glucose Import (GO:0046326)
+
+PBMC3K / det10: 511 genes, background 511, mu = 0.5437
+  GMCC      M1  172 genes (172 tested):    0 terms  
+  GMCC      M2  132 genes (132 tested):   16 terms  Antigen Processing And Presentation Of Exogenous P
+  Pearson   M1  159 genes (159 tested):    0 terms  
+  Pearson   M2  151 genes (151 tested):    0 terms  
+  Cosine    M1   98 genes (98 tested):    0 terms  
+  Cosine    M2   85 genes (85 tested):    0 terms  
+  Cosine    M3   70 genes (70 tested):   24 terms  Antigen Processing And Presentation Of Exogenous P
+  Spearman  M1  163 genes (163 tested):    0 terms  
+  Spearman  M2  127 genes (127 tested):    0 terms  
+  Spearman  M3   10 genes (10 tested):    0 terms  
+
+Paul15 / all: 2000 genes, background 1610, mu = 0.4980
+  GMCC      M1  318 genes (246 tested):    0 terms  
+  GMCC      M2  251 genes (194 tested):    0 terms  
+  GMCC      M3  139 genes (112 tested):    9 terms  Cytoplasmic Translation (GO:0002181)
+  Pearson   M1  799 genes (650 tested):   14 terms  mRNA Processing (GO:0006397)
+  Pearson   M2  755 genes (614 tested):    2 terms  Positive Regulation Of Cytokine Production (GO:000
+  Pearson   M3  305 genes (235 tested):    0 terms  
+  Cosine    M1  381 genes (317 tested):    4 terms  Regulation Of Tumor Necrosis Factor Production (GO
+  Cosine    M2  347 genes (282 tested):   12 terms  mRNA Processing (GO:0006397)
+  Cosine    M3  139 genes (114 tested):    0 terms  
+  Cosine    M4   11 genes (9 tested):    7 terms  Natural Killer Cell Activation (GO:0030101)
+  Spearman  M1  736 genes (600 tested):   22 terms  mRNA Processing (GO:0006397)
+  Spearman  M2  719 genes (585 tested):    0 terms  
+  Spearman  M3   72 genes (56 tested):    1 terms  Regulation Of Endothelial Cell Proliferation (GO:0
+  Spearman  M4   10 genes (9 tested):    0 terms  
+
+Paul15 / det5: 1452 genes, background 1186, mu = 0.6700
+  GMCC      M1  415 genes (327 tested):    0 terms  
+  GMCC      M2  252 genes (207 tested):    4 terms  Cytoplasmic Translation (GO:0002181)
+  Pearson   M1  612 genes (504 tested):    7 terms  mRNA Processing (GO:0006397)
+  Pearson   M2  512 genes (420 tested):    1 terms  Positive Regulation Of Cytokine Production (GO:000
+  Pearson   M3   13 genes (9 tested):    0 terms  
+  Cosine    M1  282 genes (234 tested):    3 terms  Regulation Of Tumor Necrosis Factor Production (GO
+  Cosine    M2  248 genes (207 tested):    4 terms  Chromatin Organization (GO:0006325)
+  Cosine    M3  152 genes (116 tested):    0 terms  
+  Spearman  M1  625 genes (514 tested):    2 terms  mRNA Processing (GO:0006397)
+  Spearman  M2  445 genes (369 tested):    1 terms  Positive Regulation Of Cytokine Production (GO:000
+  Spearman  M3   15 genes (12 tested):    5 terms  Peptide Biosynthetic Process (GO:0043043)
+
+Paul15 / det10: 1181 genes, background 976, mu = 0.7934
+  GMCC      M1  372 genes (315 tested):    0 terms  
+  GMCC      M2  294 genes (241 tested):    2 terms  Cytoplasmic Translation (GO:0002181)
+  Pearson   M1  524 genes (436 tested):    0 terms  
+  Pearson   M2  377 genes (317 tested):    1 terms  Positive Regulation Of Cytokine Production (GO:000
+  Pearson   M3   12 genes (9 tested):    0 terms  
+  Cosine    M1  332 genes (264 tested):    0 terms  
+  Cosine    M2  219 genes (188 tested):    0 terms  
+  Cosine    M3   10 genes (6 tested):   42 terms  Acylglycerol Biosynthetic Process (GO:0046463)
+  Spearman  M1  512 genes (422 tested):    0 terms  
+  Spearman  M2  350 genes (294 tested):    4 terms  Positive Regulation Of Cytokine Production (GO:000
+  Spearman  M3   10 genes (8 tested):    5 terms  Peptide Biosynthetic Process (GO:0043043)

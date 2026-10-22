@@ -1,0 +1,16 @@
+
+PBMC3K: genes detected in <= 1% of cells: 23.7%; <= 5%: 56.2%
+  GMCC      edges=99,950  no co-detected cell=91.1%  co-detection above independence=8.8%  median detection of edge genes=0.26%
+  Pearson   edges=99,950  no co-detected cell=0.0%  co-detection above independence=99.8%  median detection of edge genes=5.63%
+  Cosine    edges=99,950  no co-detected cell=0.0%  co-detection above independence=93.3%  median detection of edge genes=22.67%
+  Spearman  edges=99,950  no co-detected cell=0.0%  co-detection above independence=99.8%  median detection of edge genes=5.93%
+  rank correlation over pairs: GMCC~Pearson +0.080, GMCC~Cosine -0.484
+
+Paul15: genes detected in <= 1% of cells: 6.7%; <= 5%: 27.4%
+  GMCC      edges=99,950  no co-detected cell=44.9%  co-detection above independence=49.3%  median detection of edge genes=1.47%
+  Pearson   edges=99,950  no co-detected cell=0.0%  co-detection above independence=100.0%  median detection of edge genes=34.25%
+  Cosine    edges=99,950  no co-detected cell=0.0%  co-detection above independence=98.8%  median detection of edge genes=56.92%
+  Spearman  edges=99,950  no co-detected cell=0.0%  co-detection above independence=100.0%  median detection of edge genes=30.18%
+  rank correlation over pairs: GMCC~Pearson +0.204, GMCC~Cosine -0.254
+
+Saved: /home/claude/ctrl/repo/results/low_detection_control/edge_codetection.csv

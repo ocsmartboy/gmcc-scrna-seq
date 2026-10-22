@@ -1,0 +1,48 @@
+
+PBMC3K / all: 2000 genes, background 2000, mu = 0.1776
+  GMCC      M1  589 genes (589 tested):    0 terms  
+  GMCC      M2   92 genes (92 tested):   65 terms  Antigen Processing And Presentation Of Exogenous P
+  GMCC      M3   13 genes (13 tested):   82 terms  Apoptotic Process (GO:0006915)
+  Pearson   M1 1395 genes (1395 tested):    0 terms  
+  Pearson   M2  426 genes (426 tested):   10 terms  Positive Regulation Of Inflammatory Response (GO:0
+  Pearson   M3  179 genes (179 tested):    0 terms  
+  Cosine    M1 1593 genes (1593 tested):    0 terms  
+  Spearman  M1 1392 genes (1392 tested):    0 terms  
+  Spearman  M2  442 genes (442 tested):   10 terms  Positive Regulation Of Inflammatory Response (GO:0
+  Spearman  M3  166 genes (166 tested):    0 terms  
+
+PBMC3K / det5: 884 genes, background 884, mu = 0.3634
+  GMCC      M1  459 genes (459 tested):    0 terms  
+  Pearson   M1  873 genes (873 tested):    0 terms  
+  Cosine    M1  513 genes (513 tested):    0 terms  
+  Spearman  M1  859 genes (859 tested):    0 terms  
+
+PBMC3K / det10: 511 genes, background 511, mu = 0.5437
+  GMCC      M1  308 genes (308 tested):    0 terms  
+  Pearson   M1  310 genes (310 tested):    0 terms  
+  Cosine    M1  253 genes (253 tested):    0 terms  
+  Spearman  M1  300 genes (300 tested):    0 terms  
+
+Paul15 / all: 2000 genes, background 1610, mu = 0.4980
+  GMCC      M1  569 genes (440 tested):    0 terms  
+  GMCC      M2  139 genes (112 tested):    9 terms  Cytoplasmic Translation (GO:0002181)
+  Pearson   M1 1870 genes (1509 tested):    0 terms  
+  Cosine    M1  867 genes (713 tested):    0 terms  
+  Cosine    M2   11 genes (9 tested):    7 terms  Natural Killer Cell Activation (GO:0030101)
+  Spearman  M1 1550 genes (1261 tested):    0 terms  
+
+Paul15 / det5: 1452 genes, background 1186, mu = 0.6700
+  GMCC      M1  674 genes (540 tested):    0 terms  
+  Pearson   M1 1143 genes (936 tested):    0 terms  
+  Cosine    M1  682 genes (557 tested):    0 terms  
+  Spearman  M1 1087 genes (897 tested):    0 terms  
+
+Paul15 / det10: 1181 genes, background 976, mu = 0.7934
+  GMCC      M1  666 genes (556 tested):    0 terms  
+  Pearson   M1  913 genes (762 tested):    0 terms  
+  Cosine    M1  563 genes (460 tested):    0 terms  
+  Spearman  M1  876 genes (727 tested):    0 terms  
+
+Reproduction of Table 5 with the full gene set: DIFFERENT - check the GMT file
+  PBMC3K: GMCC 147 (Table 5: 147), Pearson 10 (Table 5: 10), Cosine 0 (Table 5: 0), Spearman 10 (Table 5: 9)
+  Paul15: GMCC 9 (Table 5: 9), Pearson 0 (Table 5: 0), Cosine 7 (Table 5: 7), Spearman 0 (Table 5: 0)

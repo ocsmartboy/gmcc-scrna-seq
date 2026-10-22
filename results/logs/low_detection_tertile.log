@@ -1,0 +1,65 @@
+
+========================================================================
+PBMC3K: 2000 genes, 2700 cells, tertile thresholds on detection rate: low <= 0.0200, high > 0.0684
+========================================================================
+  pair set all      1,999,000 pairs (100.0%)
+  pair set excl_LL  1,774,885 pairs ( 88.8%)
+  pair set LL         224,115 pairs ( 11.2%)
+  pair set L_other    891,100 pairs ( 44.6%)
+  pair set not_low    883,785 pairs ( 44.2%)
+  pair set HH         222,111 pairs ( 11.1%)
+
+  Unperturbed matrix diagnostics
+    GMCC      rho(similarity, shared-zero fraction) = +0.876; 95th-percentile edges in LL = 98.7%, HH = 1.3%
+    Pearson   rho(similarity, shared-zero fraction) = -0.074; 95th-percentile edges in LL = 11.4%, HH = 25.1%
+    Cosine    rho(similarity, shared-zero fraction) = -0.736; 95th-percentile edges in LL = 3.7%, HH = 81.0%
+    Spearman  rho(similarity, shared-zero fraction) = -0.156; 95th-percentile edges in LL = 13.7%, HH = 27.7%
+  masking 10% done (155s)
+  masking 30% done (164s)
+  masking 50% done (160s)
+  masking 70% done (163s)
+
+========================================================================
+Paul15: 2000 genes, 2730 cells, tertile thresholds on detection rate: low <= 0.0675, high > 0.2845
+========================================================================
+  pair set all      1,999,000 pairs (100.0%)
+  pair set excl_LL  1,776,889 pairs ( 88.9%)
+  pair set LL         222,111 pairs ( 11.1%)
+  pair set L_other    889,111 pairs ( 44.5%)
+  pair set not_low    887,778 pairs ( 44.4%)
+  pair set HH         222,111 pairs ( 11.1%)
+
+  Unperturbed matrix diagnostics
+    GMCC      rho(similarity, shared-zero fraction) = +0.659; 95th-percentile edges in LL = 97.6%, HH = 2.4%
+    Pearson   rho(similarity, shared-zero fraction) = -0.078; 95th-percentile edges in LL = 2.7%, HH = 38.1%
+    Cosine    rho(similarity, shared-zero fraction) = -0.766; 95th-percentile edges in LL = 0.1%, HH = 95.4%
+    Spearman  rho(similarity, shared-zero fraction) = -0.077; 95th-percentile edges in LL = 0.9%, HH = 29.6%
+  masking 10% done (152s)
+  masking 30% done (156s)
+  masking 50% done (156s)
+  masking 70% done (158s)
+Saved: /home/claude/ctrl/repo/results/low_detection_control/diagnostics_tertile.csv
+Saved: /home/claude/ctrl/repo/results/low_detection_control/mean_tau_tertile.csv
+Saved: /home/claude/ctrl/repo/results/low_detection_control/paired_tests_tertile.csv
+
+========================================================================
+AVERAGE TAU ACROSS MASKING LEVELS - PBMC3K (tertile)
+========================================================================
+  pair set        GMCC   Pearson    Cosine  Spearman
+  all           0.9009    0.4661    0.7450    0.4738
+  excl_LL       0.8811    0.4591    0.7311    0.4682
+  LL            0.7967    0.6411    0.6100    0.6366
+  L_other       0.9113    0.4425    0.6030    0.4360
+  not_low       0.7854    0.4728    0.7130    0.4800
+  HH            0.6836    0.5158    0.7691    0.5216
+
+========================================================================
+AVERAGE TAU ACROSS MASKING LEVELS - Paul15 (tertile)
+========================================================================
+  pair set        GMCC   Pearson    Cosine  Spearman
+  all           0.9299    0.5963    0.8434    0.6186
+  excl_LL       0.9155    0.6077    0.8469    0.6310
+  LL            0.8744    0.4662    0.5690    0.4692
+  L_other       0.9475    0.5187    0.6798    0.5320
+  not_low       0.8633    0.6634    0.8702    0.6814
+  HH            0.8267    0.6555    0.8535    0.6576
