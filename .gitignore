@@ -1,6 +1,9 @@
 # Large intermediate matrices (regenerate with src/similarity/stage2_*.py)
 data/processed/*.npy
 
+# Third-party GO library (download from Enrichr; see README)
+data/*.gmt
+
 # Python
 __pycache__/
 *.pyc
