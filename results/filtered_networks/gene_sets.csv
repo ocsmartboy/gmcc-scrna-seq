@@ -1,0 +1,7 @@
+dataset,gene_set,min_detection,n_genes,n_pairs,sparsity_pct,global_mean
+PBMC3K,all,0.0,2000,1999000,91.40,0.1776
+PBMC3K,det5,0.05,884,390286,82.78,0.3634
+PBMC3K,det10,0.1,511,130305,75.23,0.5437
+Paul15,all,0.0,2000,1999000,77.18,0.4980
+Paul15,det5,0.05,1452,1053426,69.39,0.6700
+Paul15,det10,0.1,1181,696790,64.02,0.7934

@@ -1,0 +1,9 @@
+dataset,split,estimator,rho_similarity_shared_zero,mean_sim_LL,mean_sim_L_other,mean_sim_not_low,mean_sim_HH,edge_share_pct_LL,edge_share_pct_L_other,edge_share_pct_not_low,edge_share_pct_HH
+PBMC3K,tertile,GMCC,0.8756,0.5671,0.0493,0.0095,0.0415,98.68,0.06,1.27,1.26
+PBMC3K,tertile,Pearson,-0.0743,0.0059,0.0005,0.0060,0.0121,11.40,34.97,53.62,25.14
+PBMC3K,tertile,Cosine,-0.7359,0.0112,0.0228,0.0979,0.1814,3.70,1.45,94.85,81.00
+PBMC3K,tertile,Spearman,-0.1557,0.0055,0.0031,0.0129,0.0202,13.68,27.87,58.45,27.67
+Paul15,tertile,GMCC,0.6593,0.6519,-0.0476,0.0207,0.1888,97.61,0.00,2.39,2.39
+Paul15,tertile,Pearson,-0.0779,0.0073,-0.0002,0.0216,0.0385,2.70,6.32,90.98,38.13
+Paul15,tertile,Cosine,-0.7664,0.0298,0.0792,0.2874,0.4645,0.05,0.01,99.94,95.37
+Paul15,tertile,Spearman,-0.0765,0.0081,0.0069,0.0326,0.0378,0.88,5.45,93.67,29.60

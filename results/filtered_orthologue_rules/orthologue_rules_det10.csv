@@ -1,0 +1,13 @@
+rule,background,estimator,modules,module_genes,mapped,mapping_rate_pct,significant_terms,leading_term
+one2one,976,GMCC,2,666,556,83.5,2,Cytoplasmic Translation (GO:0002181)
+one2one,976,Pearson,3,913,762,83.5,1,Positive Regulation Of Cytokine Production (GO:0001819)
+one2one,976,Cosine,3,561,458,81.6,42,Acylglycerol Biosynthetic Process (GO:0046463)
+one2one,976,Spearman,3,872,724,83.0,9,Positive Regulation Of Cytokine Production (GO:0001819)
+one2one_hc,958,GMCC,2,666,545,81.8,2,Cytoplasmic Translation (GO:0002181)
+one2one_hc,958,Pearson,3,913,746,81.7,1,Positive Regulation Of Cytokine Production (GO:0001819)
+one2one_hc,958,Cosine,3,561,446,79.5,43,Acylglycerol Biosynthetic Process (GO:0046463)
+one2one_hc,958,Spearman,3,872,708,81.2,9,Positive Regulation Of Cytokine Production (GO:0001819)
+last_entry,1018,GMCC,2,666,586,88.0,2,Cytoplasmic Translation (GO:0002181)
+last_entry,1018,Pearson,3,913,798,87.4,2,Positive Regulation Of Cytokine Production (GO:0001819)
+last_entry,1018,Cosine,3,561,481,85.7,41,Acylglycerol Biosynthetic Process (GO:0046463)
+last_entry,1018,Spearman,3,872,759,87.0,7,Positive Regulation Of Phagocytosis (GO:0050766)

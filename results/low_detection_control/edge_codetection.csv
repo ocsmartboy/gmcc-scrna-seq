@@ -1,0 +1,9 @@
+dataset,estimator,n_edges,pct_edges_no_codetected_cell,pct_edges_codetection_above_independence,median_detection_pct_of_edge_genes
+PBMC3K,GMCC,99950,91.1,8.8,0.26
+PBMC3K,Pearson,99950,0.0,99.8,5.63
+PBMC3K,Cosine,99950,0.0,93.3,22.67
+PBMC3K,Spearman,99950,0.0,99.8,5.93
+Paul15,GMCC,99950,44.9,49.3,1.47
+Paul15,Pearson,99950,0.0,100.0,34.25
+Paul15,Cosine,99950,0.0,98.8,56.92
+Paul15,Spearman,99950,0.0,100.0,30.18
