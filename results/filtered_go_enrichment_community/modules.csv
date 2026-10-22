@@ -1,0 +1,75 @@
+dataset,gene_set,estimator,module,module_genes,genes_tested,significant_terms,top_term,top_padj
+PBMC3K,all,GMCC,1,329,329,0,,
+PBMC3K,all,GMCC,2,260,260,0,,
+PBMC3K,all,GMCC,3,92,92,65,Antigen Processing And Presentation Of Exogenous Peptide Antigen (GO:0002478),1.85e-07
+PBMC3K,all,GMCC,4,13,13,82,Apoptotic Process (GO:0006915),3.87e-04
+PBMC3K,all,Pearson,1,1395,1395,0,,
+PBMC3K,all,Pearson,2,426,426,10,Positive Regulation Of Inflammatory Response (GO:0050729),3.56e-03
+PBMC3K,all,Pearson,3,179,179,0,,
+PBMC3K,all,Cosine,1,778,778,0,,
+PBMC3K,all,Cosine,2,380,380,30,Positive Regulation Of Response To External Stimulus (GO:0032103),2.76e-05
+PBMC3K,all,Cosine,3,317,317,0,,
+PBMC3K,all,Cosine,4,64,64,0,,
+PBMC3K,all,Cosine,5,10,10,30,Aggrephagy (GO:0035973),3.42e-02
+PBMC3K,all,Spearman,1,1392,1392,0,,
+PBMC3K,all,Spearman,2,442,442,10,Positive Regulation Of Inflammatory Response (GO:0050729),1.64e-03
+PBMC3K,all,Spearman,3,166,166,0,,
+PBMC3K,det5,GMCC,1,283,283,0,,
+PBMC3K,det5,GMCC,2,176,176,45,Antigen Processing And Presentation Of Exogenous Peptide Antigen (GO:0002478),1.25e-04
+PBMC3K,det5,Pearson,1,490,490,0,,
+PBMC3K,det5,Pearson,2,267,267,8,Positive Regulation Of Inflammatory Response (GO:0050729),2.29e-02
+PBMC3K,det5,Pearson,3,85,85,0,,
+PBMC3K,det5,Pearson,4,17,17,0,,
+PBMC3K,det5,Cosine,1,269,269,0,,
+PBMC3K,det5,Cosine,2,200,200,10,Immunoglobulin Mediated Immune Response (GO:0016064),2.88e-03
+PBMC3K,det5,Cosine,3,44,44,12,Positive Regulation Of Defense Response (GO:0031349),2.75e-03
+PBMC3K,det5,Spearman,1,488,488,0,,
+PBMC3K,det5,Spearman,2,259,259,7,Positive Regulation Of Inflammatory Response (GO:0050729),1.50e-02
+PBMC3K,det5,Spearman,3,81,81,0,,
+PBMC3K,det5,Spearman,4,11,11,3,Positive Regulation Of Glucose Import (GO:0046326),1.01e-02
+PBMC3K,det10,GMCC,1,172,172,0,,
+PBMC3K,det10,GMCC,2,132,132,16,Antigen Processing And Presentation Of Exogenous Peptide Antigen (GO:0002478),1.18e-03
+PBMC3K,det10,Pearson,1,159,159,0,,
+PBMC3K,det10,Pearson,2,151,151,0,,
+PBMC3K,det10,Cosine,1,98,98,0,,
+PBMC3K,det10,Cosine,2,85,85,0,,
+PBMC3K,det10,Cosine,3,70,70,24,Antigen Processing And Presentation Of Exogenous Peptide Antigen (GO:0002478),2.88e-06
+PBMC3K,det10,Spearman,1,163,163,0,,
+PBMC3K,det10,Spearman,2,127,127,0,,
+PBMC3K,det10,Spearman,3,10,10,0,,
+Paul15,all,GMCC,1,318,246,0,,
+Paul15,all,GMCC,2,251,194,0,,
+Paul15,all,GMCC,3,139,112,9,Cytoplasmic Translation (GO:0002181),5.13e-05
+Paul15,all,Pearson,1,799,650,14,mRNA Processing (GO:0006397),5.29e-04
+Paul15,all,Pearson,2,755,614,2,Positive Regulation Of Cytokine Production (GO:0001819),2.48e-02
+Paul15,all,Pearson,3,305,235,0,,
+Paul15,all,Cosine,1,381,317,4,Regulation Of Tumor Necrosis Factor Production (GO:0032680),1.30e-03
+Paul15,all,Cosine,2,347,282,12,mRNA Processing (GO:0006397),2.59e-06
+Paul15,all,Cosine,3,139,114,0,,
+Paul15,all,Cosine,4,11,9,7,Natural Killer Cell Activation (GO:0030101),2.80e-04
+Paul15,all,Spearman,1,736,600,22,mRNA Processing (GO:0006397),1.12e-04
+Paul15,all,Spearman,2,719,585,0,,
+Paul15,all,Spearman,3,72,56,1,Regulation Of Endothelial Cell Proliferation (GO:0001936),1.41e-03
+Paul15,all,Spearman,4,10,9,0,,
+Paul15,det5,GMCC,1,415,327,0,,
+Paul15,det5,GMCC,2,252,207,4,Cytoplasmic Translation (GO:0002181),3.74e-03
+Paul15,det5,Pearson,1,612,504,7,mRNA Processing (GO:0006397),1.84e-04
+Paul15,det5,Pearson,2,512,420,1,Positive Regulation Of Cytokine Production (GO:0001819),7.56e-03
+Paul15,det5,Pearson,3,13,9,0,,
+Paul15,det5,Cosine,1,282,234,3,Regulation Of Tumor Necrosis Factor Production (GO:0032680),3.28e-04
+Paul15,det5,Cosine,2,248,207,4,Chromatin Organization (GO:0006325),9.98e-03
+Paul15,det5,Cosine,3,152,116,0,,
+Paul15,det5,Spearman,1,625,514,2,mRNA Processing (GO:0006397),7.55e-03
+Paul15,det5,Spearman,2,445,369,1,Positive Regulation Of Cytokine Production (GO:0001819),7.56e-03
+Paul15,det5,Spearman,3,15,12,5,Peptide Biosynthetic Process (GO:0043043),3.09e-04
+Paul15,det10,GMCC,1,372,315,0,,
+Paul15,det10,GMCC,2,294,241,2,Cytoplasmic Translation (GO:0002181),4.81e-02
+Paul15,det10,Pearson,1,524,436,0,,
+Paul15,det10,Pearson,2,377,317,1,Positive Regulation Of Cytokine Production (GO:0001819),8.84e-03
+Paul15,det10,Pearson,3,12,9,0,,
+Paul15,det10,Cosine,1,332,264,0,,
+Paul15,det10,Cosine,2,219,188,0,,
+Paul15,det10,Cosine,3,10,6,42,Acylglycerol Biosynthetic Process (GO:0046463),4.59e-02
+Paul15,det10,Spearman,1,512,422,0,,
+Paul15,det10,Spearman,2,350,294,4,Positive Regulation Of Cytokine Production (GO:0001819),4.45e-02
+Paul15,det10,Spearman,3,10,8,5,Peptide Biosynthetic Process (GO:0043043),4.24e-03

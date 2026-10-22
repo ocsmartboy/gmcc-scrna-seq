@@ -1,0 +1,25 @@
+dataset,gene_set,n_genes,background,estimator,module_method,n_modules,module_genes,significant_terms
+PBMC3K,all,2000,2000,GMCC,greedy modularity,4,694,147
+PBMC3K,all,2000,2000,Pearson,greedy modularity,3,2000,10
+PBMC3K,all,2000,2000,Cosine,greedy modularity,5,1549,60
+PBMC3K,all,2000,2000,Spearman,greedy modularity,3,2000,10
+PBMC3K,det5,884,884,GMCC,greedy modularity,2,459,45
+PBMC3K,det5,884,884,Pearson,greedy modularity,4,859,8
+PBMC3K,det5,884,884,Cosine,greedy modularity,3,513,22
+PBMC3K,det5,884,884,Spearman,greedy modularity,4,839,10
+PBMC3K,det10,511,511,GMCC,greedy modularity,2,304,16
+PBMC3K,det10,511,511,Pearson,greedy modularity,2,310,0
+PBMC3K,det10,511,511,Cosine,greedy modularity,3,253,24
+PBMC3K,det10,511,511,Spearman,greedy modularity,3,300,0
+Paul15,all,2000,1610,GMCC,greedy modularity,3,708,9
+Paul15,all,2000,1610,Pearson,greedy modularity,3,1859,16
+Paul15,all,2000,1610,Cosine,greedy modularity,4,878,23
+Paul15,all,2000,1610,Spearman,greedy modularity,4,1537,23
+Paul15,det5,1452,1186,GMCC,greedy modularity,2,667,4
+Paul15,det5,1452,1186,Pearson,greedy modularity,3,1137,8
+Paul15,det5,1452,1186,Cosine,greedy modularity,3,682,7
+Paul15,det5,1452,1186,Spearman,greedy modularity,3,1085,8
+Paul15,det10,1181,976,GMCC,greedy modularity,2,666,2
+Paul15,det10,1181,976,Pearson,greedy modularity,3,913,1
+Paul15,det10,1181,976,Cosine,greedy modularity,3,561,42
+Paul15,det10,1181,976,Spearman,greedy modularity,3,872,9

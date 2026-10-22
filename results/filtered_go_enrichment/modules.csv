@@ -1,0 +1,33 @@
+dataset,gene_set,estimator,module,module_genes,genes_tested,significant_terms,top_term,top_padj
+PBMC3K,all,GMCC,1,589,589,0,,
+PBMC3K,all,GMCC,2,92,92,65,Antigen Processing And Presentation Of Exogenous Peptide Antigen (GO:0002478),1.85e-07
+PBMC3K,all,GMCC,3,13,13,82,Apoptotic Process (GO:0006915),3.87e-04
+PBMC3K,all,Pearson,1,1395,1395,0,,
+PBMC3K,all,Pearson,2,426,426,10,Positive Regulation Of Inflammatory Response (GO:0050729),3.56e-03
+PBMC3K,all,Pearson,3,179,179,0,,
+PBMC3K,all,Cosine,1,1593,1593,0,,
+PBMC3K,all,Spearman,1,1392,1392,0,,
+PBMC3K,all,Spearman,2,442,442,10,Positive Regulation Of Inflammatory Response (GO:0050729),1.64e-03
+PBMC3K,all,Spearman,3,166,166,0,,
+PBMC3K,det5,GMCC,1,459,459,0,,
+PBMC3K,det5,Pearson,1,873,873,0,,
+PBMC3K,det5,Cosine,1,513,513,0,,
+PBMC3K,det5,Spearman,1,859,859,0,,
+PBMC3K,det10,GMCC,1,308,308,0,,
+PBMC3K,det10,Pearson,1,310,310,0,,
+PBMC3K,det10,Cosine,1,253,253,0,,
+PBMC3K,det10,Spearman,1,300,300,0,,
+Paul15,all,GMCC,1,569,440,0,,
+Paul15,all,GMCC,2,139,112,9,Cytoplasmic Translation (GO:0002181),5.13e-05
+Paul15,all,Pearson,1,1870,1509,0,,
+Paul15,all,Cosine,1,867,713,0,,
+Paul15,all,Cosine,2,11,9,7,Natural Killer Cell Activation (GO:0030101),2.80e-04
+Paul15,all,Spearman,1,1550,1261,0,,
+Paul15,det5,GMCC,1,674,540,0,,
+Paul15,det5,Pearson,1,1143,936,0,,
+Paul15,det5,Cosine,1,682,557,0,,
+Paul15,det5,Spearman,1,1087,897,0,,
+Paul15,det10,GMCC,1,666,556,0,,
+Paul15,det10,Pearson,1,913,762,0,,
+Paul15,det10,Cosine,1,563,460,0,,
+Paul15,det10,Spearman,1,876,727,0,,

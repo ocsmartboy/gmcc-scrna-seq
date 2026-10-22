@@ -1,0 +1,116 @@
+\begingroup
+\scriptsize
+\setlength{\tabcolsep}{2.5pt}
+\begin{longtable}{@{}l l p{4.6cm} r r p{3.6cm}@{}}
+\caption{All significant Gene Ontology Biological Process terms (Benjamini--Hochberg adjusted $p<0.05$) for the community modules of the networks of genes detected in at least 10\% of cells. Module size in genes is given in parentheses. Overlap is $k/K$, where $k$ is the number of module genes annotated to the term and $K$ the number of background genes annotated to it. For Paul15, module genes and background are human orthologues.}\label{tab:go-terms}\\
+\toprule
+Estimator & Module & GO term & Overlap & Adj.\ $p$ & Overlap genes \\
+\endfirsthead
+\toprule
+Estimator & Module & GO term & Overlap & Adj.\ $p$ & Overlap genes \\
+\midrule
+\endhead
+\bottomrule
+\endfoot
+\midrule
+\multicolumn{6}{l}{\textit{PBMC~3K (40 terms)}} \\
+\midrule
+GMCC & M2 (132) & Antigen Processing And Presentation Of Exogenous Peptide Antigen \GOterm{0002478} & 9/9 & $1.18\times10^{-3}$ & \geneList{HLA-DRA, HLA-DMA, IFI30, HLA-DRB1, CTSS, HLA-DQA1, HLA-DMB, HLA-DPA1, FCER1G} \\
+ &  & Antigen Processing And Presentation Of Exogenous Peptide Antigen Via MHC Class II \GOterm{0019886} & 9/9 & $1.18\times10^{-3}$ & \geneList{HLA-DRA, HLA-DMA, IFI30, HLA-DRB1, CTSS, HLA-DQA1, HLA-DMB, HLA-DPA1, FCER1G} \\
+ &  & Antigen Processing And Presentation Of Peptide Antigen Via MHC Class II \GOterm{0002495} & 9/9 & $1.18\times10^{-3}$ & \geneList{HLA-DRA, HLA-DMA, IFI30, HLA-DRB1, CTSS, HLA-DQA1, HLA-DMB, HLA-DPA1, FCER1G} \\
+ &  & Positive Regulation Of T Cell Activation \GOterm{0050870} & 12/14 & $1.18\times10^{-3}$ & \geneList{CCL5, HLA-DMA, HLA-DRA, B2M, HLA-DRB1, HLA-DQA1, ACTB, ZAP70, HLA-DMB, HLA-DPA1, AIF1, PYCARD} \\
+ &  & Regulation Of T Cell Activation \GOterm{0050863} & 11/13 & $2.65\times10^{-3}$ & \geneList{CCL5, HLA-DMA, HLA-DRA, LGALS3, B2M, HLA-DRB1, HLA-DQA1, HLA-DMB, HLA-DPA1, CD2, PYCARD} \\
+ &  & Immunoglobulin Mediated Immune Response \GOterm{0016064} & 8/8 & $3.18\times10^{-3}$ & \geneList{HLA-DRA, HLA-DMA, HLA-DRB1, HLA-DQA1, HLA-DMB, HLA-DPA1, FCER1G, CD74} \\
+ &  & Granulocyte Chemotaxis \GOterm{0071621} & 8/9 & $1.49\times10^{-2}$ & \geneList{CCL5, CCL3, LGALS3, CCL4, PPIB, S100A9, FCER1G, S100A8} \\
+ &  & Neutrophil Chemotaxis \GOterm{0030593} & 8/9 & $1.49\times10^{-2}$ & \geneList{CCL5, CCL3, LGALS3, CCL4, PPIB, S100A9, FCER1G, S100A8} \\
+ &  & Neutrophil Migration \GOterm{1990266} & 8/9 & $1.49\times10^{-2}$ & \geneList{CCL5, CCL3, LGALS3, CCL4, PPIB, S100A9, FCER1G, S100A8} \\
+ &  & Positive Regulation Of Apoptotic Signaling Pathway \GOterm{2001235} & 6/6 & $2.20\times10^{-2}$ & \geneList{TNFSF10, CTSS, PYCARD, LTB, S100A9, S100A8} \\
+ &  & Immunoglobulin Production Involved In Immunoglobulin-Mediated Immune Response \GOterm{0002381} & 6/6 & $2.20\times10^{-2}$ & \geneList{HLA-DRA, HLA-DMA, HLA-DRB1, HLA-DQA1, HLA-DMB, HLA-DPA1} \\
+ &  & MHC Class II Protein Complex Assembly \GOterm{0002399} & 6/6 & $2.20\times10^{-2}$ & \geneList{HLA-DMA, HLA-DRA, HLA-DRB1, HLA-DQA1, HLA-DMB, HLA-DPA1} \\
+ &  & Regulation Of Viral Entry Into Host Cell \GOterm{0046596} & 6/6 & $2.20\times10^{-2}$ & \geneList{IFITM3, FCN1, LGALS1, HLA-DRB1, SNX3, CD74} \\
+ &  & Peptide Antigen Assembly With MHC Class II Protein Complex \GOterm{0002503} & 6/6 & $2.20\times10^{-2}$ & \geneList{HLA-DMA, HLA-DRA, HLA-DRB1, HLA-DQA1, HLA-DMB, HLA-DPA1} \\
+ &  & Positive Regulation Of Leukocyte Cell-Cell Adhesion \GOterm{1903039} & 7/8 & $3.21\times10^{-2}$ & \geneList{HLA-DRA, HLA-DMA, HLA-DRB1, HLA-DQA1, HLA-DMB, HLA-DPA1, PYCARD} \\
+ &  & Inflammatory Response \GOterm{0006954} & 8/10 & $3.27\times10^{-2}$ & \geneList{CCL5, CCL3, CCL4, AIF1, KLRG1, S100A9, LYZ, S100A8} \\
+Cosine & M3 (70) & Antigen Processing And Presentation Of Exogenous Peptide Antigen \GOterm{0002478} & 9/9 & $2.88\times10^{-6}$ & \geneList{HLA-DRA, HLA-DMA, IFI30, HLA-DRB1, CTSS, HLA-DQA1, HLA-DMB, HLA-DPA1, FCER1G} \\
+ &  & Antigen Processing And Presentation Of Exogenous Peptide Antigen Via MHC Class II \GOterm{0019886} & 9/9 & $2.88\times10^{-6}$ & \geneList{HLA-DRA, HLA-DMA, IFI30, HLA-DRB1, CTSS, HLA-DQA1, HLA-DMB, HLA-DPA1, FCER1G} \\
+ &  & Antigen Processing And Presentation Of Peptide Antigen Via MHC Class II \GOterm{0002495} & 9/9 & $2.88\times10^{-6}$ & \geneList{HLA-DRA, HLA-DMA, IFI30, HLA-DRB1, CTSS, HLA-DQA1, HLA-DMB, HLA-DPA1, FCER1G} \\
+ &  & Immunoglobulin Mediated Immune Response \GOterm{0016064} & 7/8 & $4.91\times10^{-4}$ & \geneList{HLA-DRA, HLA-DMA, HLA-DRB1, HLA-DQA1, HLA-DMB, HLA-DPA1, FCER1G} \\
+ &  & MHC Class II Protein Complex Assembly \GOterm{0002399} & 6/6 & $4.91\times10^{-4}$ & \geneList{HLA-DMA, HLA-DRA, HLA-DRB1, HLA-DQA1, HLA-DMB, HLA-DPA1} \\
+ &  & Immunoglobulin Production Involved In Immunoglobulin-Mediated Immune Response \GOterm{0002381} & 6/6 & $4.91\times10^{-4}$ & \geneList{HLA-DRA, HLA-DMA, HLA-DRB1, HLA-DQA1, HLA-DMB, HLA-DPA1} \\
+ &  & Positive Regulation Of Leukocyte Cell-Cell Adhesion \GOterm{1903039} & 7/8 & $4.91\times10^{-4}$ & \geneList{HLA-DRA, HLA-DMA, HLA-DRB1, HLA-DQA1, HLA-DMB, HLA-DPA1, PYCARD} \\
+ &  & Peptide Antigen Assembly With MHC Class II Protein Complex \GOterm{0002503} & 6/6 & $4.91\times10^{-4}$ & \geneList{HLA-DMA, HLA-DRA, HLA-DRB1, HLA-DQA1, HLA-DMB, HLA-DPA1} \\
+ &  & Regulation Of T Cell Activation \GOterm{0050863} & 9/13 & $4.91\times10^{-4}$ & \geneList{HLA-DRA, HLA-DMA, LGALS3, HLA-DRB1, HLA-DQA1, HLA-DMB, TNFRSF1B, HLA-DPA1, PYCARD} \\
+ &  & Positive Regulation Of Lymphocyte Activation \GOterm{0051251} & 8/11 & $8.16\times10^{-4}$ & \geneList{HLA-DRA, HLA-DMA, HLA-DRB1, TYROBP, HLA-DQA1, HLA-DMB, HLA-DPA1, PYCARD} \\
+ &  & Regulation Of Interleukin-1 Beta Production \GOterm{0032651} & 5/5 & $3.13\times10^{-3}$ & \geneList{CCL3, TYROBP, SERPINB1, GSTP1, PYCARD} \\
+ &  & Peptide Antigen Assembly With MHC Protein Complex \GOterm{0002501} & 6/8 & $8.07\times10^{-3}$ & \geneList{HLA-DMA, HLA-DRA, HLA-DRB1, HLA-DQA1, HLA-DMB, HLA-DPA1} \\
+ &  & Positive Regulation Of T Cell Activation \GOterm{0050870} & 8/14 & $8.07\times10^{-3}$ & \geneList{HLA-DRA, HLA-DMA, HLA-DRB1, HLA-DQA1, HLA-DMB, AIF1, HLA-DPA1, PYCARD} \\
+ &  & Positive Regulation Of Apoptotic Signaling Pathway \GOterm{2001235} & 5/6 & $1.23\times10^{-2}$ & \geneList{TNFSF10, CTSS, PYCARD, S100A9, S100A8} \\
+ &  & Response To Lipopolysaccharide \GOterm{0032496} & 5/6 & $1.23\times10^{-2}$ & \geneList{TNFRSF1B, GSTP1, PYCARD, S100A9, S100A8} \\
+ &  & Positive Regulation Of Response To External Stimulus \GOterm{0032103} & 8/15 & $1.25\times10^{-2}$ & \geneList{CCL3, LGALS1, LGALS2, AIF1, GRN, PYCARD, S100A9, S100A8} \\
+ &  & Positive Regulation Of Immune Effector Process \GOterm{0002699} & 4/4 & $1.56\times10^{-2}$ & \geneList{HLA-DRB1, HLA-DRA, FCN1, HLA-DMB} \\
+ &  & Regulation Of Inflammatory Response \GOterm{0050727} & 8/16 & $1.98\times10^{-2}$ & \geneList{CCL3, LGALS1, LGALS2, GRN, TNFRSF1B, PYCARD, S100A9, S100A8} \\
+ &  & Inflammatory Response \GOterm{0006954} & 6/10 & $2.93\times10^{-2}$ & \geneList{CCL3, AIF1, FPR1, S100A9, LYZ, S100A8} \\
+ &  & Regulation Of T Cell Proliferation \GOterm{0042129} & 5/7 & $2.93\times10^{-2}$ & \geneList{LGALS3, HLA-DRB1, HLA-DMB, HLA-DPA1, TNFRSF1B} \\
+ &  & Positive Regulation Of Defense Response \GOterm{0031349} & 7/14 & $3.89\times10^{-2}$ & \geneList{CCL3, LGALS1, LGALS2, GRN, PYCARD, S100A9, S100A8} \\
+ &  & Positive Regulation Of Inflammatory Response \GOterm{0050729} & 7/14 & $3.89\times10^{-2}$ & \geneList{CCL3, LGALS1, LGALS2, GRN, PYCARD, S100A9, S100A8} \\
+ &  & Negative Regulation Of Inflammatory Response \GOterm{0050728} & 4/5 & $4.94\times10^{-2}$ & \geneList{GRN, HLA-DRB1, GSTP1, TNFRSF1B} \\
+ &  & Cellular Response To Lipopolysaccharide \GOterm{0071222} & 4/5 & $4.94\times10^{-2}$ & \geneList{TNFRSF1B, CCL3, GSTP1, PYCARD} \\
+\midrule
+\multicolumn{6}{l}{\textit{Paul15 (54 terms)}} \\
+\midrule
+GMCC & M2 (294) & Cytoplasmic Translation \GOterm{0002181} & 7/7 & $4.81\times10^{-2}$ & \geneList{RPS11, RPS21, RPL32, RPS10, RPS8, RPL13, EIF4A1} \\
+ &  & Translation \GOterm{0006412} & 10/12 & $4.81\times10^{-2}$ & \geneList{ABCF1, RPS11, RPS21, RPS10, RPL32, RPS8, RRBP1, MRPL52, NDUFA7, RPL13} \\
+Pearson & M2 (377) & Positive Regulation Of Cytokine Production \GOterm{0001819} & 23/32 & $8.84\times10^{-3}$ & \geneList{RUNX1, XBP1, SORL1, POU2F2, STAT3, PIK3CD, SYK, IL16, LAPTM5, LCP1, CSF1R, FOXP1, NFAM1, PLCG2, CYBA, FCER1G, TMED10, TGFB1, TYROBP, ELANE, PYCARD, C3, IRF1} \\
+Cosine & M3 (10) & Acylglycerol Biosynthetic Process \GOterm{0046463} & 1/3 & $4.59\times10^{-2}$ & \geneList{LPIN2} \\
+ &  & Cellular Response To Amino Acid Starvation \GOterm{0034198} & 1/2 & $4.59\times10^{-2}$ & \geneList{SH3GLB1} \\
+ &  & Cellular Response To Glucose Starvation \GOterm{0042149} & 1/3 & $4.59\times10^{-2}$ & \geneList{SH3GLB1} \\
+ &  & Centromere Complex Assembly \GOterm{0034508} & 1/2 & $4.59\times10^{-2}$ & \geneList{CENPF} \\
+ &  & Endosome To Melanosome Transport \GOterm{0035646} & 1/2 & $4.59\times10^{-2}$ & \geneList{AP1M1} \\
+ &  & Endosome To Pigment Granule Transport \GOterm{0043485} & 1/2 & $4.59\times10^{-2}$ & \geneList{AP1M1} \\
+ &  & Establishment Of Chromosome Localization \GOterm{0051303} & 1/1 & $4.59\times10^{-2}$ & \geneList{CENPF} \\
+ &  & Exit From Mitosis \GOterm{0010458} & 1/2 & $4.59\times10^{-2}$ & \geneList{UBE2C} \\
+ &  & Free Ubiquitin Chain Polymerization \GOterm{0010994} & 1/1 & $4.59\times10^{-2}$ & \geneList{UBE2C} \\
+ &  & Kidney Development \GOterm{0001822} & 1/3 & $4.59\times10^{-2}$ & \geneList{CENPF} \\
+ &  & Kinetochore Assembly \GOterm{0051382} & 1/2 & $4.59\times10^{-2}$ & \geneList{CENPF} \\
+ &  & Kinetochore Organization \GOterm{0051383} & 1/2 & $4.59\times10^{-2}$ & \geneList{CENPF} \\
+ &  & Melanosome Assembly \GOterm{1903232} & 1/2 & $4.59\times10^{-2}$ & \geneList{AP1M1} \\
+ &  & Membrane Fission \GOterm{0090148} & 1/3 & $4.59\times10^{-2}$ & \geneList{SH3GLB1} \\
+ &  & Metaphase Plate Congression \GOterm{0051310} & 1/3 & $4.59\times10^{-2}$ & \geneList{CENPF} \\
+ &  & Monocarboxylic Acid Catabolic Process \GOterm{0072329} & 1/2 & $4.59\times10^{-2}$ & \geneList{LPIN2} \\
+ &  & Nuclear Chromosome Segregation \GOterm{0098813} & 1/3 & $4.59\times10^{-2}$ & \geneList{CENPF} \\
+ &  & Platelet Dense Granule Organization \GOterm{0060155} & 1/3 & $4.59\times10^{-2}$ & \geneList{AP1M1} \\
+ &  & Positive Regulation Of Autophagosome Assembly \GOterm{2000786} & 1/2 & $4.59\times10^{-2}$ & \geneList{SH3GLB1} \\
+ &  & Positive Regulation Of Establishment Of Protein Localization To Mitochondrion \GOterm{1903749} & 1/3 & $4.59\times10^{-2}$ & \geneList{SH3GLB1} \\
+ &  & Positive Regulation Of Metaphase/Anaphase Transition Of Cell Cycle \GOterm{1902101} & 1/1 & $4.59\times10^{-2}$ & \geneList{UBE2C} \\
+ &  & Positive Regulation Of Mitotic Metaphase/Anaphase Transition \GOterm{0045842} & 1/1 & $4.59\times10^{-2}$ & \geneList{UBE2C} \\
+ &  & Positive Regulation Of Mitotic Nuclear Division \GOterm{0045840} & 1/1 & $4.59\times10^{-2}$ & \geneList{UBE2C} \\
+ &  & Positive Regulation Of Mitotic Sister Chromatid Separation \GOterm{1901970} & 1/1 & $4.59\times10^{-2}$ & \geneList{UBE2C} \\
+ &  & Positive Regulation Of Protein Targeting To Mitochondrion \GOterm{1903955} & 1/3 & $4.59\times10^{-2}$ & \geneList{SH3GLB1} \\
+ &  & Positive Regulation Of Ubiquitin Protein Ligase Activity \GOterm{1904668} & 1/1 & $4.59\times10^{-2}$ & \geneList{UBE2C} \\
+ &  & Positive Regulation Of Ubiquitin-Protein Transferase Activity \GOterm{0051443} & 1/1 & $4.59\times10^{-2}$ & \geneList{UBE2C} \\
+ &  & Positive Regulation Of Vacuole Organization \GOterm{0044090} & 1/3 & $4.59\times10^{-2}$ & \geneList{SH3GLB1} \\
+ &  & Protein Localization To Vacuole \GOterm{0072665} & 1/2 & $4.59\times10^{-2}$ & \geneList{SH3GLB1} \\
+ &  & Receptor Catabolic Process \GOterm{0032801} & 1/3 & $4.59\times10^{-2}$ & \geneList{SH3GLB1} \\
+ &  & Receptor Metabolic Process \GOterm{0043112} & 1/3 & $4.59\times10^{-2}$ & \geneList{SH3GLB1} \\
+ &  & Regulation Of Autophagosome Assembly \GOterm{2000785} & 1/3 & $4.59\times10^{-2}$ & \geneList{SH3GLB1} \\
+ &  & Regulation Of Cell Cycle G2/M Phase Transition \GOterm{1902749} & 1/3 & $4.59\times10^{-2}$ & \geneList{CENPF} \\
+ &  & Regulation Of Exit From Mitosis \GOterm{0007096} & 1/3 & $4.59\times10^{-2}$ & \geneList{UBE2C} \\
+ &  & Regulation Of G2/M Transition Of Mitotic Cell Cycle \GOterm{0010389} & 1/2 & $4.59\times10^{-2}$ & \geneList{CENPF} \\
+ &  & Regulation Of Mitotic Cell Cycle Phase Transition \GOterm{1901990} & 2/17 & $4.59\times10^{-2}$ & \geneList{CENPF, UBE2C} \\
+ &  & Regulation Of Protein Targeting To Mitochondrion \GOterm{1903214} & 1/3 & $4.59\times10^{-2}$ & \geneList{SH3GLB1} \\
+ &  & Regulation Of Striated Muscle Tissue Development \GOterm{0016202} & 1/3 & $4.59\times10^{-2}$ & \geneList{CENPF} \\
+ &  & Regulation Of Ubiquitin Protein Ligase Activity \GOterm{1904666} & 1/1 & $4.59\times10^{-2}$ & \geneList{UBE2C} \\
+ &  & Renal System Development \GOterm{0072001} & 1/2 & $4.59\times10^{-2}$ & \geneList{CENPF} \\
+ &  & Response To Amino Acid Starvation \GOterm{1990928} & 1/2 & $4.59\times10^{-2}$ & \geneList{SH3GLB1} \\
+ &  & Triglyceride Biosynthetic Process \GOterm{0019432} & 1/3 & $4.59\times10^{-2}$ & \geneList{LPIN2} \\
+Spearman & M2 (350) & Positive Regulation Of Cytokine Production \GOterm{0001819} & 21/32 & $4.45\times10^{-2}$ & \geneList{XBP1, SORL1, POU2F2, STAT3, PIK3CD, SYK, IL16, LAPTM5, LCP1, CSF1R, FOXP1, NFAM1, PLCG2, CYBA, FCER1G, TMED10, TGFB1, TYROBP, ELANE, PYCARD, C3} \\
+ &  & Positive Regulation Of Phagocytosis \GOterm{0050766} & 10/11 & $4.45\times10^{-2}$ & \geneList{FCER1G, CFP, DOCK2, RAB27A, PYCARD, C3, GATA2, PLCG2, CYBA, CALR} \\
+ &  & Regulation Of Interleukin-6 Production \GOterm{0032675} & 12/15 & $4.45\times10^{-2}$ & \geneList{SYK, MAPKAPK2, TYROBP, XBP1, IL16, PTPN6, PYCARD, POU2F2, PLCG2, CYBA, LCP1, STAT3} \\
+ &  & Regulation Of Tumor Necrosis Factor Production \GOterm{0032680} & 11/13 & $4.45\times10^{-2}$ & \geneList{IFNGR1, FOXP1, SYK, MAPKAPK2, TYROBP, PTPN6, PYCARD, PLCG2, CYBA, LCP1, STAT3} \\
+Spearman & M3 (10) & Peptide Biosynthetic Process \GOterm{0043043} & 3/10 & $4.24\times10^{-3}$ & \geneList{MRPL42, RPS11, RPL32} \\
+ &  & Translation \GOterm{0006412} & 3/12 & $4.24\times10^{-3}$ & \geneList{MRPL42, RPS11, RPL32} \\
+ &  & Macromolecule Biosynthetic Process \GOterm{0009059} & 3/15 & $5.77\times10^{-3}$ & \geneList{MRPL42, RPS11, RPL32} \\
+ &  & Cytoplasmic Translation \GOterm{0002181} & 2/7 & $3.33\times10^{-2}$ & \geneList{RPS11, RPL32} \\
+ &  & Gene Expression \GOterm{0010467} & 3/32 & $3.53\times10^{-2}$ & \geneList{MRPL42, RPS11, RPL32} \\
+\end{longtable}
+\endgroup

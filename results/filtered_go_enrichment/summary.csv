@@ -1,0 +1,25 @@
+dataset,gene_set,n_genes,background,estimator,module_method,n_modules,module_genes,significant_terms
+PBMC3K,all,2000,2000,GMCC,connected components,3,694,147
+PBMC3K,all,2000,2000,Pearson,greedy modularity,3,2000,10
+PBMC3K,all,2000,2000,Cosine,connected components,1,1593,0
+PBMC3K,all,2000,2000,Spearman,greedy modularity,3,2000,10
+PBMC3K,det5,884,884,GMCC,connected components,1,459,0
+PBMC3K,det5,884,884,Pearson,connected components,1,873,0
+PBMC3K,det5,884,884,Cosine,connected components,1,513,0
+PBMC3K,det5,884,884,Spearman,connected components,1,859,0
+PBMC3K,det10,511,511,GMCC,connected components,1,308,0
+PBMC3K,det10,511,511,Pearson,connected components,1,310,0
+PBMC3K,det10,511,511,Cosine,connected components,1,253,0
+PBMC3K,det10,511,511,Spearman,connected components,1,300,0
+Paul15,all,2000,1610,GMCC,connected components,2,708,9
+Paul15,all,2000,1610,Pearson,connected components,1,1870,0
+Paul15,all,2000,1610,Cosine,connected components,2,878,7
+Paul15,all,2000,1610,Spearman,connected components,1,1550,0
+Paul15,det5,1452,1186,GMCC,connected components,1,674,0
+Paul15,det5,1452,1186,Pearson,connected components,1,1143,0
+Paul15,det5,1452,1186,Cosine,connected components,1,682,0
+Paul15,det5,1452,1186,Spearman,connected components,1,1087,0
+Paul15,det10,1181,976,GMCC,connected components,1,666,0
+Paul15,det10,1181,976,Pearson,connected components,1,913,0
+Paul15,det10,1181,976,Cosine,connected components,1,563,0
+Paul15,det10,1181,976,Spearman,connected components,1,876,0

@@ -1,0 +1,2 @@
+Gene_set,Term,Overlap,P-value,Adjusted P-value,Odds Ratio,Combined Score,Genes
+GO_Biological_Process_2023.gmt,Regulation Of Endothelial Cell Proliferation (GO:0001936),6/13,1.923461671310481e-06,0.0014079739433992722,26.557755775577558,349.5368230424039,PRKD2;ITGB3;ANGPT1;ALOX5;TIE1;PRKCA
