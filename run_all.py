@@ -8,8 +8,8 @@ Usage (from anywhere):
     python run_all.py rank network    # selected steps only
     python run_all.py --from enrich_pbmc
 
-Steps that print tables only to the console (e.g. Table 2, Table 3,
-Supplementary Tables S3, S4 and S7) are reproducible from these logs.
+Steps that print tables only to the console (e.g. Table 2 and
+Supplementary Table S7) are reproducible from these logs.
 Expected total runtime on a laptop: several hours (dominated by the
 2,000 x 2,000 similarity computations over 20 realisations x 4 levels).
 """
@@ -24,38 +24,60 @@ LOG_DIR = os.path.join(REPO, "results", "logs")
 
 # (step name, script, manuscript items)
 STEPS = [
+    # ── Matrices and primary rank / magnitude robustness (2,000 genes) ──
     ("matrix_pbmc",   "src/similarity/stage2_similarity_2000hvg.py",
      "PBMC 3K matrix and global mean; Methods 2.1"),
     ("matrix_paul15", "src/similarity/stage2_similarity_paul15.py",
      "Paul15 matrix and global mean; Methods 2.1"),
     ("assumptions",   "src/analysis/verify_methods_assumptions.py",
-     "Methods 2.3-2.6 checks (nested masking, realised levels, no ties, 99,950 edges)"),
+     "Methods checks (nested masking, realised levels, no ties, 99,950 edges)"),
     ("rank",          "src/stability/paired_difference_ci.py",
-     "Table 1, Fig. 1 data, Suppl. Tables S1, S7 (avg tau), S8"),
+     "Table 1, Fig. 1 data, Suppl. Table S1"),
     ("centring",      "src/analysis/mu_fixed_vs_recomputed.py",
      "Table 2"),
     ("defined_pairs", "src/stability/sensitivity_defined_pairs.py",
      "Suppl. Section S7, Table S9"),
     ("figures",       "src/figures/make_figures.py",
      "Figs. 1-2, Suppl. Table S2 (NMAC)"),
+    # ── Dependence on gene detection (Section 3.3, Suppl. Section S9) ──
+    ("low_detection", "src/analysis/low_detection_control.py",
+     "Table 3, Suppl. Tables S11-S12, shared-zero correlations"),
+    ("low_detection_q", "src/analysis/low_detection_control.py --split quartile",
+     "Suppl. Tables S11, S13 (quartile split)"),
+    ("edge_codetection", "src/analysis/edge_codetection_check.py",
+     "Section 3.3: co-detection of the 2,000-gene network edges"),
+    ("detection_filter", "src/analysis/detection_filter_analysis.py",
+     "Suppl. Table S14 (genes detected in >=1/5/10% of cells)"),
+    # ── Networks and enrichment of adequately detected genes ──
+    ("filtered_networks", "src/network/filtered_networks.py",
+     "Tables 4-5, Suppl. Tables S3-S4, S15-S16"),
+    ("filtered_enrich_comm", "src/enrichment/filtered_go_enrichment.py --modules community",
+     "Table 6, Suppl. Tables S5, S17 (needs data/GO_Biological_Process_2023.gmt)"),
+    ("filtered_enrich", "src/enrichment/filtered_go_enrichment.py",
+     "Suppl. Table S17 (component-based module rule)"),
+    ("filtered_orthologue", "src/enrichment/filtered_orthologue_rules.py",
+     "Suppl. Section S8, Tables S5, S10"),
+    ("go_table",      "src/enrichment/make_go_supplement_table_filtered.py",
+     "Suppl. Table S6"),
+    # ── 2,000-gene networks (earlier version; Bicor-SD statistics) ──
     ("network_pbmc",  "src/network/stage5_network_2000hvg.py",
-     "Table 3 (PBMC 3K)"),
+     "2,000-gene network, PBMC 3K (earlier version; Suppl. Table S7)"),
     ("network_paul15", "src/network/stage5_network_paul15.py",
-     "Table 3 (Paul15)"),
+     "2,000-gene network, Paul15 (earlier version; Suppl. Table S7)"),
     ("network_masking", "src/stability/network_topology_masking.py",
-     "Suppl. Table S3"),
+     "2,000-gene clustering under masking, incl. Bicor-SD (Suppl. Table S7)"),
     ("threshold",     "src/analysis/threshold_sensitivity.py",
-     "Suppl. Table S4"),
+     "2,000-gene percentile sensitivity, incl. Bicor-SD (Suppl. Table S7)"),
     ("degree",        "src/analysis/abundance_confounding.py",
-     "Table 4 (degree vs detection rate)"),
+     "2,000-gene degree vs detection rate (Suppl. Table S7)"),
     ("module_check",  "src/analysis/module_abundance_check.py",
      "module-level diagnostic (not tabulated)"),
     ("enrich_pbmc",   "src/enrichment/stage6_go_enrichment_2000hvg.py",
-     "Table 5 (PBMC 3K)"),
+     "2,000-gene enrichment, PBMC 3K (earlier version; needs Enrichr access)"),
     ("enrich_paul15", "src/enrichment/paul15_go_enrichment_one2one.py",
-     "Table 5 (Paul15), Suppl. Tables S5, S10"),
-    ("go_table",      "src/enrichment/make_go_supplement_table.py",
-     "Suppl. Table S6"),
+     "2,000-gene enrichment, Paul15 (earlier version; needs Enrichr access)"),
+    ("go_table_2000", "src/enrichment/make_go_supplement_table.py",
+     "term table of the earlier 2,000-gene version"),
     ("bicor_mad",     "src/analysis/module_check_bicor.py",
      "Suppl. Section S6 (MAD = 0 rates)"),
     ("bicor_undef",   "src/analysis/bicor_standard_check.py",
@@ -73,7 +95,7 @@ def run_step(name, script):
     env = dict(os.environ, PYTHONIOENCODING="utf-8", PYTHONUNBUFFERED="1")
     with open(log_path, "w", encoding="utf-8") as log:
         proc = subprocess.Popen(
-            [sys.executable, os.path.join(REPO, script)], cwd=REPO, env=env,
+            [sys.executable, os.path.join(REPO, script.split()[0])] + script.split()[1:], cwd=REPO, env=env,
             stdout=subprocess.PIPE, stderr=subprocess.STDOUT,
             text=True, encoding="utf-8", errors="replace")
         for line in proc.stdout:
