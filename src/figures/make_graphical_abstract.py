@@ -3,7 +3,9 @@ Graphical abstract for the GMCC robustness paper (Computational Biology and Chem
 
 Reads the same per-seed Kendall tau_b file as make_figures.py
 (data/processed/raw_kendall_tau_per_seed.npz, keys "dataset|method|rate"),
-so the curves in the middle panel are the Figure 1 means.
+so the curves in the middle panel are the Figure 1 means. The findings panel
+summarises the main text, including the detection-dependence analyses
+(Sections 3.3-3.6).
 
 Output (figures/): graphical_abstract.{pdf,tiff,png}
 Canvas: 13.28 x 5.31 in (1328 x 531 px at 100 dpi, the journal minimum,
@@ -19,7 +21,7 @@ import matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 import numpy as np
-from matplotlib.patches import Circle, FancyArrowPatch, FancyBboxPatch, Rectangle
+from matplotlib.patches import FancyArrowPatch, FancyBboxPatch, Rectangle
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 REPO = os.path.dirname(os.path.dirname(HERE))
@@ -35,7 +37,8 @@ ORDER = ["GMCC", "Cosine", "Spearman", "Pearson"]
 
 BLUE = "#1F4E9C"      # GMCC and main elements
 FILL = "#8FA8CF"      # detected (non-zero) entries
-MASK = "#D9822B"      # entries masked to zero
+MASK = "#D9822B"      # entries masked to zero; detection threshold
+ZERO = "#F3D9BF"      # shared zeros (findings panel)
 INK = "#222222"
 NOTE = "0.35"
 DARK, MID, LIGHT = "0.35", "0.55", "0.72"   # Cosine, Spearman, Pearson
@@ -195,32 +198,36 @@ def icon_curves(ax, x, y, w, h):
                 color=c, lw=1.4)
 
 
-def icon_mu(ax, x, y, s):
-    filled = np.array([[1, 0, 1], [0, 1, 0], [1, 0, 0]], bool)
-    masked = np.array([[0, 0, 1], [0, 0, 0], [1, 0, 0]], bool)
-    grid(ax, x, y, s, filled, masked)
-    arrow(ax, (x + 3 * s + 0.1, y + 1.5 * s), (x + 3 * s + 0.65, y + 1.5 * s),
-          lw=1.3, ms=10)
-    ax.text(x + 3 * s + 0.85, y + 1.5 * s, "$\\mu$", fontsize=14, color=BLUE,
-            va="center", fontweight="bold")
+def icon_shared_zero(ax, x, y, s):
+    """Two rarely detected genes: each detected in a different cell, so almost
+    all of their entries are shared zeros (shaded)."""
+    for row, on in enumerate([0, 4]):
+        yy = y + (1 - row) * (s + 0.22)
+        for j in range(6):
+            ax.add_patch(Rectangle((x + j * s, yy), s, s,
+                                   fc=BLUE if j == on else ZERO, ec="0.75", lw=0.6))
+
+
+def icon_filter(ax, x, y, w, h):
+    """Detection-rate bars with the 10% threshold; bars below it are dropped."""
+    rates = [0.12, 0.85, 0.38, 0.08, 0.62, 0.26, 0.06]
+    bw = w / len(rates)
+    thr = 0.18
+    for j, r in enumerate(rates):
+        keep = r >= thr
+        ax.add_patch(Rectangle((x + j * bw + 0.03, y), bw - 0.06, h * r,
+                               fc=BLUE if keep else "0.85",
+                               ec=BLUE if keep else "0.70", lw=0.8))
+    ax.plot([x - 0.05, x + w + 0.05], [y + h * thr] * 2, color=MASK, lw=1.4,
+            linestyle=(0, (3, 2)))
 
 
 def icon_detection(ax, x, y, s):
-    for row, (n_on, col) in enumerate([(2, BLUE), (5, DARK)]):
+    for row, (n_on, col) in enumerate([(1, BLUE), (5, DARK)]):
         yy = y + (1 - row) * (s + 0.22)
         for j in range(6):
             ax.add_patch(Rectangle((x + j * s, yy), s, s,
                                    fc=col if j < n_on else "white", ec="0.75", lw=0.6))
-
-
-def icon_modules(ax, x, y, s):
-    pts = [(0, 0.5), (0.45, 1.0), (0.45, 0.0), (0.9, 0.5)]
-    for (a, b) in [(0, 1), (0, 2), (1, 3), (2, 3), (1, 2)]:
-        ax.plot([x + pts[a][0] * s, x + pts[b][0] * s],
-                [y + pts[a][1] * s, y + pts[b][1] * s], color="0.6", lw=1.0, zorder=1)
-    for i, (px, py) in enumerate(pts):
-        ax.add_patch(Circle((x + px * s, y + py * s), 0.13 * s,
-                            fc=BLUE if i < 2 else DARK, ec="white", lw=0.8, zorder=2))
 
 
 def panel_findings(fig):
@@ -229,16 +236,18 @@ def panel_findings(fig):
     ax.set_xlim(0, 10); ax.set_ylim(0, 10); ax.axis("off")
 
     items = [
-        ("Highest rank robustness", "GMCC in both datasets", BLUE,
+        ("Highest rank robustness",
+         "GMCC in both datasets, with $\\mu$ recomputed\nfrom each masked matrix", BLUE,
          lambda y, h: icon_curves(ax, 0.55, y + 0.25, 1.55, h - 0.5)),
-        ("Recompute the global mean", "new $\\mu$ from each masked matrix", BLUE,
-         lambda y, h: icon_mu(ax, 0.5, y + h / 2 - 0.36, 0.24)),
-        ("Different hub detection profiles",
-         "GMCC → lower-detection genes\nCosine → broadly detected genes", "0.45",
-         lambda y, h: icon_detection(ax, 0.55, y + h / 2 - 0.36, 0.27)),
-        ("Enrichment varies by estimator and dataset",
-         "PBMC 3K: GMCC → immune processes\nPaul15: Cosine → NK-cell processes", "0.45",
-         lambda y, h: icon_modules(ax, 0.75, y + h / 2 - 0.55, 1.1)),
+        ("Shared zeros inflate GMCC similarity",
+         "rarely detected genes look alike\nbecause both are mostly zero", "0.45",
+         lambda y, h: icon_shared_zero(ax, 0.55, y + h / 2 - 0.36, 0.25)),
+        ("Advantage holds after detection filter",
+         "genes detected in ≥10% of cells:\nGMCC still the most robust", BLUE,
+         lambda y, h: icon_filter(ax, 0.6, y + 0.3, 1.45, h - 0.6)),
+        ("GMCC and Cosine are complementary",
+         "GMCC → sparsely detected genes\nCosine → highly detected gene pairs", "0.45",
+         lambda y, h: icon_detection(ax, 0.55, y + h / 2 - 0.36, 0.25)),
     ]
     top, h, gap, x_txt = 9.15, 1.66, 0.22, 2.45
     for i, (head, body, col, draw_icon) in enumerate(items):
@@ -247,7 +256,6 @@ def panel_findings(fig):
                                     boxstyle="round,pad=0.02,rounding_size=0.22",
                                     fc="white", ec=col, lw=1.5))
         draw_icon(y, h)
-        nl = body.count("\n")
         ax.text(x_txt, y + h - 0.3, head, fontsize=10.8, fontweight="bold",
                 color=INK, va="top")
         ax.text(x_txt, y + h - 0.82, body, fontsize=10, color=INK, va="top",
